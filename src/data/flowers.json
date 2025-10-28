@@ -151,5 +151,28 @@
       "image_url": "/Ramos/ante.webp",
       "category_id": "3"
     }
+  ],
+  "accessories": [
+    {
+      "id": "1",
+      "name": "Mariposa",
+      "description": "Decoración floral adicional",
+      "price": 70,
+      "image_url": "/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.webp"
+    },
+    {
+      "id": "2",
+      "name": "Postales Personalizadas",
+      "description": "Con frases, nombres y fotos",
+      "price": 250,
+      "image_url": "/Accesorios/Gemini_Generated_Image_7jihmy7jihmy7jih.webp"
+    },
+    {
+      "id": "3",
+      "name": "Luces Led",
+      "description": "Iluminación LED para decorar",
+      "price": 480,
+      "image_url": "/Accesorios/Gemini_Generated_Image_nm3wghnm3wghnm3w.webp"
+    }
   ]
 }

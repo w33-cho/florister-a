@@ -1,5 +1,6 @@
 import { ShoppingCart, Plus, Minus } from 'lucide-react';
 import { Flower } from '../lib/types';
+import { useState } from 'react';
 
 interface FlowerCardProps {
   flower: Flower;
@@ -9,17 +10,27 @@ interface FlowerCardProps {
 }
 
 export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: FlowerCardProps) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <div className="group relative">
       <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl overflow-hidden border border-pink-300/50 shadow-2xl shadow-pink-200/50 transform group-hover:scale-105 group-hover:border-pink-400/60 transition-all duration-500 h-[32rem] flex flex-col">
         <div className="relative h-64 overflow-hidden flex-shrink-0 bg-white" style={{ backgroundColor: 'white' }}>
+          {!imageLoaded && (
+            <div className="absolute inset-0 flex items-center justify-center bg-pink-50">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500"></div>
+            </div>
+          )}
           <img
             src={flower.image_url}
             alt={flower.name}
             loading="lazy"
-            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
+            decoding="async"
+            onLoad={() => setImageLoaded(true)}
+            onError={() => setImageLoaded(true)}
+            className={`w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
           />
         </div>
 
@@ -41,7 +52,10 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
 
   {quantity === 0 ? (
     <button
-      onClick={() => onAddToCart(flower)}
+      onClick={(e) => {
+        e.preventDefault();
+        onAddToCart(flower);
+      }}
       className="group/btn relative flex-shrink-0"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl blur-md opacity-60 group-hover/btn:opacity-100 transition-opacity" />
@@ -53,7 +67,8 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
   ) : (
     <div className="flex items-center gap-2">
       <button
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           // Si hay múltiples items con diferentes accesorios, quitar del último agregado
           const cartItems = JSON.parse(localStorage.getItem('flower-cart') || '[]');
           const itemsWithSameFlower = cartItems.filter((item: any) => item.id === flower.id);
@@ -75,7 +90,10 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
       <span className="text-pink-600 text-xl font-black min-w-[2rem] text-center drop-shadow-lg" style={{ textShadow: '0 0 15px #ec4899, 0 0 30px #ec4899' }}>{quantity}</span>
 
       <button
-        onClick={() => onAddToCart(flower)}
+        onClick={(e) => {
+          e.preventDefault();
+          onAddToCart(flower);
+        }}
         className="group/btn relative"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 rounded-lg blur-md opacity-60 group-hover/btn:opacity-100 transition-opacity" />

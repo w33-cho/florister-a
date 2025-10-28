@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 
 const carouselImages = [
   {
@@ -24,6 +24,7 @@ export function Carousel() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(new Array(carouselImages.length).fill(false));
   const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -89,11 +90,30 @@ export function Carousel() {
             }`}
           >
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-10" />
+            {!imagesLoaded[index] && (
+              <div className="absolute inset-0 flex items-center justify-center bg-pink-100 z-20">
+                <Loader2 size={48} className="animate-spin text-pink-500" />
+              </div>
+            )}
             <img
               src={image.url}
               alt={image.title}
-              loading="lazy"
-              className="w-full h-full object-cover"
+              loading="eager"
+              onLoad={() => {
+                setImagesLoaded(prev => {
+                  const newLoaded = [...prev];
+                  newLoaded[index] = true;
+                  return newLoaded;
+                });
+              }}
+              onError={() => {
+                setImagesLoaded(prev => {
+                  const newLoaded = [...prev];
+                  newLoaded[index] = true;
+                  return newLoaded;
+                });
+              }}
+              className={`w-full h-full object-cover transition-opacity duration-500 ${imagesLoaded[index] ? 'opacity-100' : 'opacity-0'}`}
             />
           </div>
         ))}

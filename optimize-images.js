@@ -29,15 +29,18 @@ async function optimizeImages() {
 
   console.log(`Compressed ${compressedFiles.length} JPEG/PNG images`);
 
-  // Convertir a WebP
-  const webpFiles = await imagemin(['public/**/*.{jpg,jpeg,png}'], {
-    destination: outputDir,
-    plugins: [
-      imageminWebp({ quality: 70 })
-    ]
-  });
-
-  console.log(`Converted ${webpFiles.length} images to WebP`);
+  // Convertir a WebP (solo si no hay errores)
+  try {
+    const webpFiles = await imagemin(['public/**/*.{jpg,jpeg,png}'], {
+      destination: outputDir,
+      plugins: [
+        imageminWebp({ quality: 70 })
+      ]
+    });
+    console.log(`Converted ${webpFiles.length} images to WebP`);
+  } catch (error) {
+    console.log('Skipping WebP conversion due to error:', error.message);
+  }
 }
 
 optimizeImages().catch(console.error);
