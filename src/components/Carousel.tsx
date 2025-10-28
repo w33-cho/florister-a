@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const carouselImages = [
   {
-    url: '/Carrusel/20250821_123956.jpg',
+    url: '/Carrusel/20250821_123956.webp',
     title: 'Ramos Isis',
     subtitle: 'Belleza y elegancia en cada detalle'
   },
   {
-    url: '/Carrusel/20250829_070914.jpg',
+    url: '/Carrusel/20250829_070914.webp',
     title: 'Ramos artificiales',
     subtitle: 'Con accesorios increíbles'
   },
   {
-    url: '/Carrusel/20250923_072044.jpg',
+    url: '/Carrusel/20250923_072044.webp',
     title: 'Momentos Especiales',
     subtitle: 'Perfectos para cada ocasión'
   }
@@ -21,14 +21,20 @@ const carouselImages = [
 
 export function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+      if (!isDragging) {
+        setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+      }
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isDragging]);
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
@@ -38,8 +44,40 @@ export function Carousel() {
     setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const x = e.touches[0].clientX;
+    const walk = (x - startX) * 2; // Aumentar la sensibilidad
+    setScrollLeft(walk);
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+
+    if (Math.abs(scrollLeft) > 50) { // Umbral mínimo para cambiar
+      if (scrollLeft > 0) {
+        goToPrevious();
+      } else {
+        goToNext();
+      }
+    }
+    setScrollLeft(0);
+  };
+
   return (
-    <div className="relative h-[600px] overflow-hidden">
+    <div
+      ref={carouselRef}
+      className="relative h-[600px] overflow-hidden touch-pan-y"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className="absolute inset-0">
         {carouselImages.map((image, index) => (
           <div
@@ -54,6 +92,7 @@ export function Carousel() {
             <img
               src={image.url}
               alt={image.title}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { Header } from './components/Header';
 import { Carousel } from './components/Carousel';
 import { CategoryFilter } from './components/CategoryFilter';
@@ -83,7 +83,19 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header cartItemsCount={getTotalItems()} onOpenCart={() => setIsCartOpen(true)} />
 
-      <Carousel />
+      <Suspense fallback={
+        <div className="h-[600px] flex items-center justify-center bg-gradient-to-br from-pink-50 to-rose-50">
+          <div className="text-center">
+            <div className="relative inline-block mb-6">
+              <div className="absolute inset-0 bg-pink-500/30 rounded-full blur-2xl animate-pulse" />
+              <Loader2 size={64} className="relative animate-spin text-pink-400" />
+            </div>
+            <p className="text-pink-600 text-xl font-bold">Cargando carrusel...</p>
+          </div>
+        </div>
+      }>
+        <Carousel />
+      </Suspense>
 
       <main className="relative z-20 pt-8">
         <div className="container mx-auto px-4 pb-16">

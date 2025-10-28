@@ -4,48 +4,6 @@
       "id": "1",
       "name": "Accesorios",
       "description": "Accesorios para el cuidado y decoración floral"
-    }
-  ],
-  "accessories": [
-    {
-      "id": "acc1",
-      "name": "Caja Decorativa",
-      "description": "Caja elegante para regalo",
-      "price": 12.00,
-      "image_url": "/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.png"
-    },
-    {
-      "id": "acc2",
-      "name": "Tarjeta Personalizada",
-      "description": "Tarjeta con mensaje personalizado",
-      "price": 5.00,
-      "image_url": "/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.png"
-    },
-    {
-      "id": "acc3",
-      "name": "Cinta Decorativa",
-      "description": "Cinta de seda para envolver",
-      "price": 3.00,
-      "image_url": "/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.png"
-    },
-    {
-      "id": "acc4",
-      "name": "Vaso de Cristal",
-      "description": "Vaso elegante para el ramo",
-      "price": 15.00,
-      "image_url": "/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.png"
-    }
-  ],
-  "categories": [
-    {
-      "id": "1",
-      "name": "Accesorios",
-      "description": "Accesorios para el cuidado y decoración floral"
-    },
-    {
-      "id": "2",
-      "name": "Macetas",
-      "description": "Macetas decorativas de diversos estilos"
     },
     {
       "id": "3",
@@ -56,213 +14,141 @@
       "id": "4",
       "name": "Ramos Lumínicos",
       "description": "Ramos con iluminación LED especial"
+    },
+    {
+      "id": "2",
+      "name": "Macetas",
+      "description": "Macetas decorativas de diversos estilos"
     }
   ],
   "flowers": [
     {
       "id": "1",
-      "name": "Mariposas",
-      "description": "Fertilizante natural para plantas",
-      "price": 15.00,
-      "image_url": "/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.png",
+      "name": "Mariposa",
+      "price": 70,
+      "image_url": "/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.webp",
       "category_id": "1"
     },
     {
       "id": "2",
-      "name": "Tijeras de Jardín",
-      "description": "Tijeras profesionales para podar",
-      "price": 25.00,
-      "image_url": "/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.png",
+      "name": "Postales Personalizadas",
+      "description": "Con frases, nombres y fotos",
+      "price": 250,
+      "image_url": "/Accesorios/Gemini_Generated_Image_7jihmy7jihmy7jih.webp",
       "category_id": "1"
     },
     {
       "id": "3",
-      "name": "Regadera Decorativa",
-      "description": "Regadera de cerámica elegante",
-      "price": 18.00,
-      "image_url": "/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.png",
+      "name": "Luces Led",
+      "price": 480,
+      "image_url": "/Accesorios/Gemini_Generated_Image_nm3wghnm3wghnm3w.webp",
       "category_id": "1"
     },
     {
       "id": "4",
       "name": "Maceta #1",
       "price": 1000,
-      "image_url": "/Macetas/6515615.png",
+      "image_url": "/Macetas/6515615.webp",
       "category_id": "2"
     },
     {
       "id": "5",
       "name": "Maceta #2",
       "price": 500,
-      "image_url": "/Macetas/20250517_080941.png",
+      "image_url": "/Macetas/20250517_080941.webp",
       "category_id": "2"
     },
     {
       "id": "6",
       "name": "Maceta #3",
       "price": 600,
-      "image_url": "/Macetas/20250611_072402.png",
+      "image_url": "/Macetas/20250611_072402.webp",
       "category_id": "2"
     },
     {
       "id": "13",
       "name": "Maceta #4",
       "price": 500,
-      "image_url": "/Macetas/20250630_070439.png",
+      "image_url": "/Macetas/20250630_070439.webp",
       "category_id": "2"
     },
     {
       "id": "14",
       "name": "Maceta #5",
       "price": 150,
-      "image_url": "/Macetas/Capa 2.png",
+      "image_url": "/Macetas/Capa 2.webp",
       "category_id": "2"
     },
     {
       "id": "15",
       "name": "Maceta #6",
       "price": 350,
-      "image_url": "/Macetas/xc.png",
+      "image_url": "/Macetas/xc.webp",
       "category_id": "2"
-    },
-    {
-      "id": "7",
-      "name": "Ramo de Rosas Rojas",
-      "description": "Ramo de 12 rosas rojas frescas",
-      "price": 45.00,
-      "image_url": "/Ramos/20250730_131222.png",
-      "category_id": "3"
     },
     {
       "id": "8",
       "name": "Ramo de 5 Rosas",
       "price": 2000,
-      "image_url": "/Ramos/pp.png",
+      "image_url": "/Ramos/pp.webp",
       "category_id": "3"
     },
     {
       "id": "9",
-      "name": "Ramo de Tulipanes",
-      "description": "Ramo colorido de tulipanes variados",
-      "price": 40.00,
-      "image_url": "/Ramos/20250824_162418.png",
+      "name": "Ramo de 6 Rosas",
+      "price": 2900,
+      "image_url": "/Ramos/Gemini_Generated_Image_ii9la7ii9la7ii9l.webp",
       "category_id": "3"
     },
     {
       "id": "10",
-      "name": "Ramo Luminoso LED",
-      "description": "Ramo con flores blancas y luces LED",
-      "price": 65.00,
-      "image_url": "/Ramos Lumínicos/20250829_070908.png",
+      "name": "Ramo Grande Estandar Luminoso ",
+      "price": 7500,
+      "image_url": "/Ramos Lumínicos/20250829_070908.webp",
       "category_id": "4"
     },
     {
       "id": "11",
-      "name": "Ramo de Rosas LED",
-      "description": "Rosas rojas con iluminación LED romántica",
-      "price": 70.00,
-      "image_url": "/Ramos Lumínicos/20250923_070757.png",
-      "category_id": "4"
-    },
-    {
-      "id": "12",
-      "name": "Ramo de Orquídeas LED",
-      "description": "Orquídeas exóticas con luces LED",
-      "price": 80.00,
-      "image_url": "/Ramos Lumínicos/20251018_074738.png",
+      "name": "Ramo Alas de Mariposa Luminoso",
+      "price": 7500,
+      "image_url": "/Ramos Lumínicos/20250923_070757.webp",
       "category_id": "4"
     },
     {
       "id": "27",
-      "name": "Ramo de Tulipanes LED",
+      "name": "Ramo Circular",
       "description": "Tulipanes coloridos con iluminación LED",
       "price": 75.00,
-      "image_url": "/Ramos Lumínicos/20251022_072836.png",
+      "image_url": "/Ramos Lumínicos/20251022_072836.webp",
       "category_id": "4"
     },
     {
       "id": "16",
-      "name": "Ramo de Lirios Blancos",
-      "description": "Ramo elegante de lirios blancos frescos",
-      "price": 50.00,
-      "image_url": "/Ramos/20250921_095416.png",
-      "category_id": "3"
-    },
-    {
-      "id": "17",
-      "name": "Ramo de Margaritas",
-      "description": "Ramo fresco de margaritas silvestres",
-      "price": 30.00,
-      "image_url": "/Ramos/20250925_085042.png",
-      "category_id": "3"
-    },
-    {
-      "id": "18",
-      "name": "Ramo de Claveles",
-      "description": "Ramo colorido de claveles variados",
-      "price": 38.00,
-      "image_url": "/Ramos/20250926_125837.png",
-      "category_id": "3"
-    },
-    {
-      "id": "19",
-      "name": "Ramo de Gerberas",
-      "description": "Ramo vibrante de gerberas multicolores",
-      "price": 42.00,
-      "image_url": "/Ramos/20251002_072457.png",
+      "name": "Ramo de 1 Rosa o Botón",
+      "price": 450,
+      "image_url": "/Ramos/20250921_095416.webp",
       "category_id": "3"
     },
     {
       "id": "20",
-      "name": "Ramo de Hortensias",
-      "description": "Ramo romántico de hortensias azules",
-      "price": 55.00,
-      "image_url": "/Ramos/20251002_072536.png",
+      "name": "Ramo de 3 Rosas y un Botón",
+      "price": 1600,
+      "image_url": "/Ramos/20251002_072536.webp",
       "category_id": "3"
     },
     {
       "id": "21",
       "name": "Ramo de 4 Rosas",
-      "price": 1600,
-      "image_url": "/Ramos/20251022_080131.png",
+      "price": 1650,
+      "image_url": "/Ramos/20251022_080131.webp",
       "category_id": "3"
     },
     {
       "id": "22",
       "name": "Ramo de 4 Botones",
+      "description": "Ramo de 4 botones frescos",
       "price": 1600,
-      "image_url": "/Ramos/ante.png",
-      "category_id": "3"
-    },
-    {
-      "id": "23",
-      "name": "Ramo de Crisantemos",
-      "description": "Ramo abundante de crisantemos amarillos",
-      "price": 40.00,
-      "image_url": "/Ramos/cbz.png",
-      "category_id": "3"
-    },
-    {
-      "id": "24",
-      "name": "Ramo de 3 Rosas y un Botón",
-      "price": 1500,
-      "image_url": "/Ramos/ffff.png",
-      "category_id": "3"
-    },
-    {
-      "id": "25",
-      "name": "Ramo de Gladiolos",
-      "description": "Ramo alto de gladiolos rojos",
-      "price": 45.00,
-      "image_url": "/Ramos/ffffffff.png",
-      "category_id": "3"
-    },
-    {
-      "id": "26",
-      "name": "Ramo de Alstroemerias",
-      "description": "Ramo duradero de alstroemerias mixtas",
-      "price": 37.00,
-      "image_url": "/Ramos/ssssss.png",
+      "image_url": "/Ramos/ante.webp",
       "category_id": "3"
     }
   ]

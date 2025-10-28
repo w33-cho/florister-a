@@ -14,4 +14,12 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'lucide-react'],
+  },
+  server: {
+    fs: {
+      strict: false,
+    },
+  },
 });
