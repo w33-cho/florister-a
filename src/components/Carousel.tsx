@@ -9,8 +9,8 @@ const carouselImages = [
   },
   {
     url: '/Carrusel/20250829_070914.jpg',
-    title: 'Frescura Natural',
-    subtitle: 'Flores frescas del día'
+    title: 'Ramos artificiales',
+    subtitle: 'Con accesorios increíbles'
   },
   {
     url: '/Carrusel/20250923_072044.jpg',
