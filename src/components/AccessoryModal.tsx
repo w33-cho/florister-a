@@ -67,6 +67,7 @@ export function AccessoryModal({
                   <img
                     src={accessory.image_url}
                     alt={accessory.name}
+                    loading="lazy"
                     className="w-12 h-12 rounded object-cover"
                   />
                   <div className="text-left flex-1">

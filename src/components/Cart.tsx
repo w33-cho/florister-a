@@ -102,6 +102,7 @@ export function Cart({
                       <img
                         src={item.image_url}
                         alt={item.name}
+                        loading="lazy"
                         className="w-full h-full object-cover"
                       />
                     </div>

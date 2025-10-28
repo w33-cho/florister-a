@@ -18,6 +18,7 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
           <img
             src={flower.image_url}
             alt={flower.name}
+            loading="lazy"
             className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
           />
 
