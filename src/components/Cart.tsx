@@ -138,14 +138,14 @@ export function Cart({
                       )}
 
                       <div className="mt-2 pt-2 border-t border-pink-200/30">
-                        <p className="text-xs text-pink-500 font-bold">
-                          Subtotal: {(() => {
-                            const itemTotal = item.price * item.quantity;
-                            const accessoryTotal = item.selectedAccessories?.reduce((acc, cartAcc) =>
-                              acc + (cartAcc.accessory.price * cartAcc.quantity), 0) || 0;
-                            return (itemTotal + accessoryTotal).toFixed(2);
-                          })()} CUP
-                        </p>
+                        <p className="text-xs text-pink-700 font-bold">
+                            Subtotal: {(() => {
+                              const itemTotal = item.price * item.quantity;
+                              const accessoryTotal = item.selectedAccessories?.reduce((acc, cartAcc) =>
+                                acc + (cartAcc.accessory.price * cartAcc.quantity), 0) || 0;
+                              return (itemTotal + accessoryTotal).toFixed(2);
+                            })()} CUP
+                          </p>
                       </div>
 
                       <div className="flex items-center gap-1.5 mt-1">

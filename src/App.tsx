@@ -1,9 +1,7 @@
-import { useState, Suspense, lazy } from 'react';
+import { useState, Suspense, lazy, useEffect, useMemo, useCallback } from 'react';
 import { Header } from './components/Header';
 import { CategoryFilter } from './components/CategoryFilter';
 import { FlowerCard } from './components/FlowerCard';
-import { Cart } from './components/Cart';
-import { AccessoryModal } from './components/AccessoryModal';
 import { useFlowers } from './hooks/useFlowers';
 import { useCart } from './hooks/useCart';
 import { sendToWhatsApp } from './utils/whatsapp';
@@ -11,8 +9,10 @@ import { CheckoutData } from './components/CheckoutForm';
 import { Loader2, Sparkles, Zap } from 'lucide-react';
 import { Flower, CartAccessory } from './lib/types';
 
-// Lazy load non-critical components
+// Lazy load non-critical components with dynamic imports
 const Carousel = lazy(() => import('./components/Carousel').then(module => ({ default: module.Carousel })));
+const CartComponent = lazy(() => import('./components/Cart').then(module => ({ default: module.Cart })));
+const AccessoryModalComponent = lazy(() => import('./components/AccessoryModal').then(module => ({ default: module.AccessoryModal })));
 
 
 const WHATSAPP_NUMBER = '5358702873';
@@ -30,25 +30,86 @@ function App() {
     getTotalItems
   } = useCart();
 
+  // Optimized performance monitoring for main thread blocking
+  useEffect(() => {
+    // Break down observer setup to avoid long tasks
+    const setupObserver = () => {
+      const observer = new PerformanceObserver((list) => {
+        // Process entries asynchronously to avoid blocking
+        setTimeout(() => {
+          const entries = list.getEntries();
+          entries.forEach(entry => {
+            if (entry.duration > 50) {
+              console.log('[Main Thread Block]', {
+                name: entry.name,
+                duration: entry.duration,
+                startTime: entry.startTime,
+                type: entry.entryType
+              });
+            }
+          });
+        }, 0);
+      });
+
+      observer.observe({ entryTypes: ['longtask'] });
+      return observer;
+    };
+
+    // Setup input monitoring with debouncing
+    let inputTimeout: number;
+    let lastInputTime = 0;
+
+    const handleInput = () => {
+      const now = performance.now();
+      clearTimeout(inputTimeout);
+      inputTimeout = window.setTimeout(() => {
+        const delay = now - lastInputTime;
+        if (delay > 100) {
+          console.log('[Input Delay]', { delay, timestamp: now });
+        }
+        lastInputTime = now;
+      }, 16);
+    };
+
+    // Schedule setup asynchronously
+    const timer = setTimeout(() => {
+      const observer = setupObserver();
+      document.addEventListener('click', handleInput, { passive: true });
+      document.addEventListener('keydown', handleInput, { passive: true });
+
+      return () => {
+        observer.disconnect();
+        document.removeEventListener('click', handleInput);
+        document.removeEventListener('keydown', handleInput);
+        clearTimeout(inputTimeout);
+      };
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isAccessoryModalOpen, setIsAccessoryModalOpen] = useState(false);
   const [selectedFlowerForAccessory, setSelectedFlowerForAccessory] = useState<Flower | null>(null);
   const [selectedAccessories, setSelectedAccessories] = useState<CartAccessory[]>([]);
 
-  const filteredFlowers = selectedCategory
-    ? flowers.filter(flower => flower.category_id === selectedCategory)
-    : flowers;
+  // Memoize expensive filtering operation
+  const filteredFlowers = useMemo(() => {
+    return selectedCategory
+      ? flowers.filter(flower => flower.category_id === selectedCategory)
+      : flowers;
+  }, [flowers, selectedCategory]);
 
-  const handleSendWhatsApp = (checkoutData: CheckoutData) => {
+  const handleSendWhatsApp = useCallback((checkoutData: CheckoutData) => {
     if (cart.length > 0) {
       sendToWhatsApp(cart, WHATSAPP_NUMBER, checkoutData);
       clearCart();
       setIsCartOpen(false);
     }
-  };
+  }, [cart, clearCart]);
 
-  const handleAddToCart = (flower: Flower) => {
+  const handleAddToCart = useCallback((flower: Flower) => {
     // Siempre mostrar modal de accesorios para ramos y macetas, incluso si ya hay uno en el carrito
     if (flower.category_id === '2' || flower.category_id === '3' || flower.category_id === '4') {
       setSelectedFlowerForAccessory(flower);
@@ -57,16 +118,16 @@ function App() {
     } else {
       addToCart(flower);
     }
-  };
+  }, [addToCart]);
 
-  const handleAccessoryConfirm = () => {
+  const handleAccessoryConfirm = useCallback(() => {
     if (selectedFlowerForAccessory) {
       addToCart(selectedFlowerForAccessory, selectedAccessories.length > 0 ? selectedAccessories : undefined);
       setIsAccessoryModalOpen(false);
       setSelectedFlowerForAccessory(null);
       setSelectedAccessories([]);
     }
-  };
+  }, [selectedFlowerForAccessory, selectedAccessories, addToCart]);
 
   if (loading) {
     return (
@@ -167,25 +228,29 @@ function App() {
         </div>
       </main>
 
-      <Cart
-        cart={cart}
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        onUpdateQuantity={updateQuantity}
-        onRemove={removeFromCart}
-        onRemoveAccessory={removeAccessory}
-        onSendWhatsApp={handleSendWhatsApp}
-        totalPrice={getTotalPrice()}
-      />
+      <Suspense fallback={<div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center"><Loader2 className="animate-spin text-white" size={32} /></div>}>
+        <CartComponent
+          cart={cart}
+          isOpen={isCartOpen}
+          onClose={() => setIsCartOpen(false)}
+          onUpdateQuantity={updateQuantity}
+          onRemove={removeFromCart}
+          onRemoveAccessory={removeAccessory}
+          onSendWhatsApp={handleSendWhatsApp}
+          totalPrice={getTotalPrice()}
+        />
+      </Suspense>
 
-      <AccessoryModal
-        isOpen={isAccessoryModalOpen}
-        onClose={() => setIsAccessoryModalOpen(false)}
-        accessories={accessories}
-        onSelectAccessories={setSelectedAccessories}
-        selectedAccessories={selectedAccessories}
-        onConfirm={handleAccessoryConfirm}
-      />
+      <Suspense fallback={<div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center"><Loader2 className="animate-spin text-white" size={32} /></div>}>
+        <AccessoryModalComponent
+          isOpen={isAccessoryModalOpen}
+          onClose={() => setIsAccessoryModalOpen(false)}
+          accessories={accessories}
+          onSelectAccessories={setSelectedAccessories}
+          selectedAccessories={selectedAccessories}
+          onConfirm={handleAccessoryConfirm}
+        />
+      </Suspense>
 
       <footer className="relative bg-gradient-to-t from-pink-100 via-rose-50 to-pink-50 text-pink-800 py-12 mt-20 border-t border-pink-300/50">
         <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-rose-500/5 pointer-events-none" />
