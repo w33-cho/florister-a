@@ -5,6 +5,9 @@ export function useCart() {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   useEffect(() => {
+    // For development: Always start with empty cart
+    // In production, uncomment the lines below to restore cart persistence
+    /*
     const startTime = performance.now();
     const savedCart = localStorage.getItem('flower-cart');
     if (savedCart) {
@@ -14,6 +17,7 @@ export function useCart() {
     if (duration > 5) {
       console.log('[Storage Performance] localStorage read took', duration, 'ms');
     }
+    */
   }, []);
 
   useEffect(() => {
