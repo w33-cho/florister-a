@@ -138,11 +138,10 @@ function App() {
     }
   }, [cart, clearCart]);
 
-  // Reset cart on page load for development/testing
-  // Comment out for production to maintain cart persistence
-  // useEffect(() => {
-  //   resetCart();
-  // }, [resetCart]);
+  // Reset cart on page load - always start with empty cart
+  useEffect(() => {
+    localStorage.removeItem('flower-cart');
+  }, []);
 
   const handleAddToCart = useCallback((flower: Flower) => {
     // Siempre mostrar modal de accesorios para ramos y macetas, incluso si ya hay uno en el carrito
