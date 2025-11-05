@@ -5,8 +5,10 @@ export function useCart() {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   useEffect(() => {
-    // For development: Always start with empty cart
-    // In production, uncomment the lines below to restore cart persistence
+    // Always start with empty cart for better user experience
+    // Cart persistence can cause confusion when users return to the site
+    // Comment out the lines below if you want to restore persistence
+
     /*
     const startTime = performance.now();
     const savedCart = localStorage.getItem('flower-cart');
