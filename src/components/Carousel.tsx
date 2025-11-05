@@ -1,6 +1,21 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 
+// Screen reader only styles
+const srOnly = `
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+`;
+
 const carouselImages = [
   {
     url: '/Carrusel/20250821_123956.webp',
@@ -73,13 +88,19 @@ export function Carousel() {
   };
 
   return (
-    <div
-      ref={carouselRef}
-      className="relative h-[600px] overflow-hidden touch-pan-y"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
+    <>
+      <style>{srOnly}</style>
+      <div
+        ref={carouselRef}
+        className="relative h-[600px] overflow-hidden touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        style={{ contain: 'layout style paint' }}
+        role="region"
+        aria-label="Carrusel de imágenes"
+        aria-live="polite"
+      >
       <div className="absolute inset-0">
         {carouselImages.map((image, index) => (
           <div
@@ -99,8 +120,8 @@ export function Carousel() {
             <img
               src={image.url}
               alt={image.title}
-              loading="lazy"
-              fetchPriority="low"
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "low"}
               decoding="async"
               onLoad={() => {
                 setImagesLoaded(prev => {
@@ -141,16 +162,20 @@ export function Carousel() {
         onClick={goToPrevious}
         className="absolute left-6 top-1/2 -translate-y-1/2 z-30 bg-gradient-to-r from-pink-500/30 to-rose-500/30 backdrop-blur-md hover:from-pink-500/50 hover:to-rose-500/50 p-4 rounded-full transition-all duration-300 hover:scale-110 border border-white/20 shadow-2xl invisible md:visible"
         aria-label="Imagen anterior del carrusel"
+        type="button"
       >
         <ChevronLeft size={32} className="text-white drop-shadow-lg" aria-hidden="true" />
+        <span className="sr-only">Anterior</span>
       </button>
 
       <button
         onClick={goToNext}
         className="absolute right-6 top-1/2 -translate-y-1/2 z-30 bg-gradient-to-r from-pink-500/30 to-rose-500/30 backdrop-blur-md hover:from-pink-500/50 hover:to-rose-500/50 p-4 rounded-full transition-all duration-300 hover:scale-110 border border-white/20 shadow-2xl invisible md:visible"
         aria-label="Imagen siguiente del carrusel"
+        type="button"
       >
         <ChevronRight size={32} className="text-white drop-shadow-lg" aria-hidden="true" />
+        <span className="sr-only">Siguiente</span>
       </button>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
@@ -165,11 +190,15 @@ export function Carousel() {
             } rounded-full`}
             aria-label={`Ir a la imagen ${index + 1}: ${image.title}`}
             aria-current={index === currentIndex ? 'true' : 'false'}
-          />
+            type="button"
+          >
+            <span className="sr-only">Imagen {index + 1}: {image.title}</span>
+          </button>
         ))}
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-900 to-transparent z-15" />
-    </div>
+      </div>
+    </>
   );
 }

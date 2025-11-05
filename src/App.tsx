@@ -9,6 +9,35 @@ import { CheckoutData } from './components/CheckoutForm';
 import { Loader2, Sparkles, Zap } from 'lucide-react';
 import { Flower, CartAccessory } from './lib/types';
 
+// Screen reader utilities
+const srOnly = `
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    background: white;
+    border: 2px solid #ec4899;
+    border-radius: 0.25rem;
+    z-index: 9999;
+  }
+`;
+
 // Lazy load non-critical components with dynamic imports
 const Carousel = lazy(() => import('./components/Carousel').then(module => ({ default: module.Carousel })));
 const CartComponent = lazy(() => import('./components/Cart').then(module => ({ default: module.Cart })));
@@ -144,11 +173,17 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header cartItemsCount={getTotalItems()} onOpenCart={() => setIsCartOpen(true)} />
+    <>
+      <style>{srOnly}</style>
+      <div className="min-h-screen bg-white">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-pink-500 text-white px-4 py-2 rounded z-50">
+          Saltar al contenido principal
+        </a>
+        <Header cartItemsCount={getTotalItems()} onOpenCart={() => setIsCartOpen(true)} />
 
       <Suspense fallback={
-        <div className="h-[600px] flex items-center justify-center bg-gradient-to-br from-pink-50 to-rose-50">
+        <div className="h-[600px] flex items-center justify-center bg-gradient-to-br from-pink-50 to-rose-50"
+             style={{ contain: 'layout style paint' }}>
           <div className="text-center">
             <div className="relative inline-block mb-6">
               <div className="absolute inset-0 bg-pink-500/30 rounded-full blur-2xl animate-pulse" />
@@ -161,13 +196,17 @@ function App() {
         <Carousel />
       </Suspense>
 
-      {/* Defer non-critical content */}
-      <div style={{ contentVisibility: 'auto', containIntrinsicSize: '600px' } as React.CSSProperties}>
+      {/* Defer non-critical content with reduced layout shift */}
+      <div style={{
+        contentVisibility: 'auto',
+        containIntrinsicSize: '600px',
+        contain: 'layout style paint'
+      } as React.CSSProperties}>
 
 
       </div>
 
-      <main className="relative z-20 pt-8">
+      <main id="main-content" className="relative z-20 pt-8" role="main">
         <div className="container mx-auto px-4 pb-16">
           <div className="mb-8 text-center">
             <div className="relative inline-block">
@@ -228,7 +267,7 @@ function App() {
         </div>
       </main>
 
-      <Suspense fallback={<div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center"><Loader2 className="animate-spin text-white" size={32} /></div>}>
+      <Suspense fallback={<div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center" style={{ contain: 'layout style paint' }}><Loader2 className="animate-spin text-white" size={32} /></div>}>
         <CartComponent
           cart={cart}
           isOpen={isCartOpen}
@@ -241,7 +280,7 @@ function App() {
         />
       </Suspense>
 
-      <Suspense fallback={<div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center"><Loader2 className="animate-spin text-white" size={32} /></div>}>
+      <Suspense fallback={<div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center" style={{ contain: 'layout style paint' }}><Loader2 className="animate-spin text-white" size={32} /></div>}>
         <AccessoryModalComponent
           isOpen={isAccessoryModalOpen}
           onClose={() => setIsAccessoryModalOpen(false)}
@@ -252,7 +291,7 @@ function App() {
         />
       </Suspense>
 
-      <footer className="relative bg-gradient-to-t from-pink-100 via-rose-50 to-pink-50 text-pink-800 py-12 mt-20 border-t border-pink-300/50">
+      <footer className="relative bg-gradient-to-t from-pink-100 via-rose-50 to-pink-50 text-pink-800 py-12 mt-20 border-t border-pink-300/50" role="contentinfo">
         <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-rose-500/5 pointer-events-none" />
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-rose-500/5 pointer-events-none" />
@@ -261,11 +300,11 @@ function App() {
         <div className="container mx-auto px-4 text-center relative">
           <div className="mb-6">
             <div className="inline-flex items-center gap-3 mb-4">
-              <Sparkles className="text-pink-400" size={28} />
+              <Sparkles className="text-pink-400" size={28} aria-hidden="true" />
               <h3 className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-rose-300">
                 Ramos Isis
               </h3>
-              <Sparkles className="text-pink-400" size={28} />
+              <Sparkles className="text-pink-400" size={28} aria-hidden="true" />
             </div>
             <p className="text-pink-600 font-medium tracking-wide">Experiencia Floral Futurista</p>
           </div>
@@ -301,7 +340,8 @@ function App() {
           }
         }
       `}</style>
-    </div>
+      </div>
+    </>
   );
 }
 

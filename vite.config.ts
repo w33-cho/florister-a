@@ -31,6 +31,8 @@ export default defineConfig({
         drop_debugger: true,
       },
     },
+    assetsInlineLimit: 4096, // Inline small assets
+    chunkSizeWarningLimit: 1000, // Warn for large chunks
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'lucide-react'],

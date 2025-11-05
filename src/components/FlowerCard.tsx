@@ -13,10 +13,10 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <div className="group relative">
+    <div className="group relative" style={{ contain: 'layout style paint' }}>
       <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl overflow-hidden border border-pink-300/50 shadow-2xl shadow-pink-200/50 transform group-hover:scale-105 group-hover:border-pink-400/60 transition-all duration-500 h-[32rem] flex flex-col">
+      <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl overflow-hidden border border-pink-300/50 shadow-2xl shadow-pink-200/50 transform group-hover:scale-105 group-hover:border-pink-400/60 transition-all duration-500 h-[32rem] flex flex-col" style={{ contain: 'layout style' }}>
         <div className="relative h-64 overflow-hidden flex-shrink-0 bg-white" style={{ backgroundColor: 'white' }}>
           {!imageLoaded && (
             <div className="absolute inset-0 flex items-center justify-center bg-pink-50">
