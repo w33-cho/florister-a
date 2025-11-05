@@ -39,10 +39,11 @@ export function Header({ cartItemsCount, onOpenCart }: HeaderProps) {
             <button
               onClick={onOpenCart}
               className="relative group"
+              aria-label={`Carrito de compras${cartItemsCount > 0 ? ` con ${cartItemsCount} ${cartItemsCount === 1 ? 'artículo' : 'artículos'}` : ' vacío'}`}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl blur-lg opacity-60 group-hover:opacity-100 transition-opacity" />
               <div className="relative bg-gradient-to-br from-pink-500 to-rose-600 p-3 rounded-2xl shadow-2xl transform group-hover:scale-105 transition-all duration-300 border border-pink-400/30">
-                <ShoppingCart size={24} className="text-white" />
+                <ShoppingCart size={24} className="text-white" aria-hidden="true" />
                 {cartItemsCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 to-green-600 text-white text-xs font-bold rounded-full w-7 h-7 flex items-center justify-center shadow-lg shadow-green-500/50 animate-pulse">
                     {cartItemsCount}

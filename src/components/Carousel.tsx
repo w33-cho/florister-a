@@ -128,10 +128,10 @@ export function Carousel() {
             currentIndex >= 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 drop-shadow-2xl bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-rose-300 to-pink-500 animate-pulse">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 drop-shadow-2xl text-white animate-pulse">
             {carouselImages[currentIndex].title}
           </h2>
-          <p className="text-2xl md:text-3xl lg:text-4xl drop-shadow-lg text-pink-100 font-medium tracking-wide">
+          <p className="text-2xl md:text-3xl lg:text-4xl drop-shadow-lg text-white font-medium tracking-wide">
             {carouselImages[currentIndex].subtitle}
           </p>
         </div>
@@ -140,19 +140,21 @@ export function Carousel() {
       <button
         onClick={goToPrevious}
         className="absolute left-6 top-1/2 -translate-y-1/2 z-30 bg-gradient-to-r from-pink-500/30 to-rose-500/30 backdrop-blur-md hover:from-pink-500/50 hover:to-rose-500/50 p-4 rounded-full transition-all duration-300 hover:scale-110 border border-white/20 shadow-2xl invisible md:visible"
+        aria-label="Imagen anterior del carrusel"
       >
-        <ChevronLeft size={32} className="text-white drop-shadow-lg " />
+        <ChevronLeft size={32} className="text-white drop-shadow-lg" aria-hidden="true" />
       </button>
 
       <button
         onClick={goToNext}
         className="absolute right-6 top-1/2 -translate-y-1/2 z-30 bg-gradient-to-r from-pink-500/30 to-rose-500/30 backdrop-blur-md hover:from-pink-500/50 hover:to-rose-500/50 p-4 rounded-full transition-all duration-300 hover:scale-110 border border-white/20 shadow-2xl invisible md:visible"
+        aria-label="Imagen siguiente del carrusel"
       >
-        <ChevronRight size={32} className="text-white drop-shadow-lg" />
+        <ChevronRight size={32} className="text-white drop-shadow-lg" aria-hidden="true" />
       </button>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
-        {carouselImages.map((_, index) => (
+        {carouselImages.map((image, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
@@ -161,6 +163,8 @@ export function Carousel() {
                 ? 'w-12 h-3 bg-gradient-to-r from-pink-400 to-rose-400 shadow-lg shadow-pink-500/50'
                 : 'w-3 h-3 bg-white/50 hover:bg-white/80'
             } rounded-full`}
+            aria-label={`Ir a la imagen ${index + 1}: ${image.title}`}
+            aria-current={index === currentIndex ? 'true' : 'false'}
           />
         ))}
       </div>

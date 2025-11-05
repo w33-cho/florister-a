@@ -115,7 +115,7 @@ function App() {
                 <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-rose-500/5 rounded-2xl pointer-events-none" />
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <Sparkles size={20} className="text-pink-400" />
-                  <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-rose-300">
+                  <h2 className="text-xl font-bold text-pink-800">
                     Información Importante
                   </h2>
                   <Sparkles size={20} className="text-pink-400" />
@@ -140,8 +140,8 @@ function App() {
                 <div className="absolute inset-0 bg-pink-500/20 rounded-full blur-2xl" />
                 <Zap size={80} className="relative text-pink-500/40 mx-auto" />
               </div>
-              <p className="text-gray-400 text-2xl font-semibold">No hay flores disponibles en esta categoría</p>
-              <p className="text-gray-600 mt-2">Selecciona otra categoría para ver más productos</p>
+              <p className="text-gray-700 text-2xl font-semibold">No hay flores disponibles en esta categoría</p>
+              <p className="text-gray-800 mt-2">Selecciona otra categoría para ver más productos</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
