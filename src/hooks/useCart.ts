@@ -5,9 +5,23 @@ export function useCart() {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   useEffect(() => {
-    // Always start with empty cart - clear any existing data
+    // Always start with empty cart - clear any existing data immediately
     localStorage.removeItem('flower-cart');
     setCart([]);
+
+    // Also clear on page visibility change (when user switches tabs and comes back)
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        localStorage.removeItem('flower-cart');
+        setCart([]);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
   }, []);
 
   useEffect(() => {

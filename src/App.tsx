@@ -138,9 +138,27 @@ function App() {
     }
   }, [cart, clearCart]);
 
-  // Reset cart on page load - always start with empty cart
+  // Reset cart on page load and when page becomes visible
   useEffect(() => {
-    localStorage.removeItem('flower-cart');
+    const resetCart = () => {
+      localStorage.removeItem('flower-cart');
+    };
+
+    // Reset immediately
+    resetCart();
+
+    // Also reset when page becomes visible (user switches tabs)
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        resetCart();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
   }, []);
 
   const handleAddToCart = useCallback((flower: Flower) => {
