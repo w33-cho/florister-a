@@ -10,7 +10,6 @@ interface FlowerCardProps {
 }
 
 export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: FlowerCardProps) {
-  console.log(`[LCP Debug] FlowerCard mounted for ${flower.name}`);
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
@@ -30,10 +29,8 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
             loading="lazy"
             decoding="async"
             fetchPriority="low"
-            onLoad={() => {
-              console.log(`[LCP Debug] FlowerCard image loaded for ${flower.name}`);
-              setImageLoaded(true);
-            }}
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            onLoad={() => setImageLoaded(true)}
             onError={() => setImageLoaded(true)}
             className={`w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
           />

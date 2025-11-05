@@ -20,7 +20,6 @@ const carouselImages = [
 ];
 
 export function Carousel() {
-  console.log('[LCP Debug] Carousel component mounted');
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -100,11 +99,10 @@ export function Carousel() {
             <img
               src={image.url}
               alt={image.title}
-              loading="eager"
-              fetchPriority="high"
+              loading="lazy"
+              fetchPriority="low"
               decoding="async"
               onLoad={() => {
-                console.log(`[LCP Debug] Carousel image ${index} loaded`);
                 setImagesLoaded(prev => {
                   const newLoaded = [...prev];
                   newLoaded[index] = true;

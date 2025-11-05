@@ -14,16 +14,10 @@ import { Flower, CartAccessory } from './lib/types';
 // Lazy load non-critical components
 const Carousel = lazy(() => import('./components/Carousel').then(module => ({ default: module.Carousel })));
 
-// Performance logging
-const logPerformance = (event: string, details?: Record<string, unknown>) => {
-  console.log(`[LCP Debug] ${event}`, details);
-};
 
 const WHATSAPP_NUMBER = '5358702873';
 
 function App() {
-  logPerformance('App component start');
-
   const { flowers, categories, accessories, loading } = useFlowers();
   const {
     cart,
@@ -35,8 +29,6 @@ function App() {
     getTotalPrice,
     getTotalItems
   } = useCart();
-
-  logPerformance('Hooks initialized');
 
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -77,7 +69,6 @@ function App() {
   };
 
   if (loading) {
-    logPerformance('Loading state active');
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
@@ -90,8 +81,6 @@ function App() {
       </div>
     );
   }
-
-  logPerformance('Loading complete, rendering main content');
 
   return (
     <div className="min-h-screen bg-white">
@@ -111,7 +100,11 @@ function App() {
         <Carousel />
       </Suspense>
 
-      {(() => { logPerformance('Carousel rendered'); return null; })()}
+      {/* Defer non-critical content */}
+      <div style={{ contentVisibility: 'auto', containIntrinsicSize: '600px' } as React.CSSProperties}>
+
+
+      </div>
 
       <main className="relative z-20 pt-8">
         <div className="container mx-auto px-4 pb-16">
@@ -171,8 +164,6 @@ function App() {
               ))}
             </div>
           )}
-
-          {(() => { logPerformance('Flower cards rendered', { count: filteredFlowers.length }); return null; })()}
         </div>
       </main>
 
