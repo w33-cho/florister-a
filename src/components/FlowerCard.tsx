@@ -1,5 +1,5 @@
 import { ShoppingCart, Plus, Minus } from 'lucide-react';
-import { Flower } from '../lib/types';
+import { Flower, CartItem } from '../lib/types';
 import { useState } from 'react';
 
 interface FlowerCardProps {
@@ -37,18 +37,18 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
         </div>
 
         <div className="p-6 bg-gradient-to-br from-pink-100/90 to-rose-100/90 backdrop-blur-sm flex-1 flex flex-col">
-          <h3 className="text-xl font-bold text-pink-800 mb-2 min-h-[3.5rem] flex items-center">
+          <h3 className="text-xl font-bold text-gray-800 mb-2 min-h-[3.5rem] flex items-center">
             {flower.name}
           </h3>
-          <p className="text-pink-700 text-sm mb-4 line-clamp-2 min-h-[2.5rem] flex items-start">{flower.description}</p>
+          <p className="text-gray-700 text-sm mb-4 line-clamp-2 min-h-[2.5rem] flex items-start">{flower.description}</p>
 <div className="flex items-center justify-between gap-2 mb-4 mt-auto">
   <div className="flex flex-col">
-    <div className="text-xs text-pink-800 mb-1 font-semibold tracking-wide">PRECIO</div>
+    <div className="text-xs text-gray-700 mb-1 font-semibold tracking-wide">PRECIO</div>
     <div className="flex items-baseline gap-1">
-      <span className="text-3xl font-black text-pink-800">
+      <span className="text-3xl font-black text-gray-800">
         {flower.price.toFixed(2)}
       </span>
-      <span className="text-lg font-bold text-pink-600">CUP</span>
+      <span className="text-lg font-bold text-gray-600">CUP</span>
     </div>
   </div>
 
@@ -73,8 +73,8 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
         onClick={(e) => {
           e.preventDefault();
           // Si hay múltiples items con diferentes accesorios, quitar del último agregado
-          const cartItems = JSON.parse(localStorage.getItem('flower-cart') || '[]');
-          const itemsWithSameFlower = cartItems.filter((item: any) => item.id === flower.id);
+          const cartItems: CartItem[] = JSON.parse(localStorage.getItem('flower-cart') || '[]');
+          const itemsWithSameFlower = cartItems.filter((item: CartItem) => item.id === flower.id);
           if (itemsWithSameFlower.length > 0) {
             // Quitar del último item agregado (el más reciente)
             const lastItem = itemsWithSameFlower[itemsWithSameFlower.length - 1];
@@ -91,7 +91,7 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
         </div>
       </button>
 
-      <span className="text-pink-800 text-xl font-black min-w-[2rem] text-center drop-shadow-lg">{quantity}</span>
+      <span className="text-gray-800 text-xl font-black min-w-[2rem] text-center drop-shadow-lg">{quantity}</span>
 
       <button
         onClick={(e) => {
