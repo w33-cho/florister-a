@@ -9,10 +9,16 @@ export function useFlowers() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('[LCP Debug] useFlowers: Starting data load');
     setFlowers(flowersData.flowers);
     setCategories(flowersData.categories);
     setAccessories(flowersData.accessories || []);
     setLoading(false);
+    console.log('[LCP Debug] useFlowers: Data loaded', {
+      flowersCount: flowersData.flowers.length,
+      categoriesCount: flowersData.categories.length,
+      accessoriesCount: flowersData.accessories?.length || 0
+    });
   }, []);
 
   return { flowers, categories, accessories, loading };
