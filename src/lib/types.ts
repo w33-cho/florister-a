@@ -15,7 +15,7 @@ export interface Accessory {
 export interface Flower {
   id: string;
   name: string;
-  description: string;
+  description?: string;
   price: number;
   image_url: string;
   category_id: string;

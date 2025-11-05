@@ -16,7 +16,7 @@ export function Header({ cartItemsCount, onOpenCart }: HeaderProps) {
                 <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full blur-xl opacity-60 group-hover:opacity-100 transition-opacity" />
                 <div className="relative bg-white p-1.5 rounded-full shadow-xl overflow-hidden">
                   <img
-                    src="/clararamos CIRCULAR.png"
+                    src="/clararamos CIRCULAR.webp"
                     alt="Clara Ramos Logo"
                     className="w-20 h-20 rounded-full object-cover"
                   />

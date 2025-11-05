@@ -10,7 +10,7 @@ import { useCart } from './hooks/useCart';
 import { sendToWhatsApp } from './utils/whatsapp';
 import { CheckoutData } from './components/CheckoutForm';
 import { Loader2, Sparkles, Zap } from 'lucide-react';
-import { Flower, Accessory, CartAccessory } from './lib/types';
+import { Flower, CartAccessory } from './lib/types';
 
 const WHATSAPP_NUMBER = '5358702873';
 

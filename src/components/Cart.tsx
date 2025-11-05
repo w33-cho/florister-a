@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Plus, Minus, ShoppingBag, MessageCircle, Sparkles } from 'lucide-react';
+import { X, Plus, Minus, ShoppingBag, MessageCircle } from 'lucide-react';
 import { CartItem } from '../lib/types';
 import { CheckoutData } from './CheckoutForm';
 

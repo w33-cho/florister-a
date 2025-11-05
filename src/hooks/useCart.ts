@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { CartItem, Flower, Accessory, CartAccessory } from '../lib/types';
+import { CartItem, Flower, CartAccessory } from '../lib/types';
 
 export function useCart() {
   const [cart, setCart] = useState<CartItem[]>([]);

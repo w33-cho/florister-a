@@ -117,7 +117,6 @@
     {
       "id": "27",
       "name": "Ramo Circular",
-      "description": "Tulipanes coloridos con iluminación LED",
       "price": 75.00,
       "image_url": "/Ramos Lumínicos/20251022_072836.webp",
       "category_id": "4"
@@ -146,7 +145,6 @@
     {
       "id": "22",
       "name": "Ramo de 4 Botones",
-      "description": "Ramo de 4 botones frescos",
       "price": 1600,
       "image_url": "/Ramos/ante.webp",
       "category_id": "3"
