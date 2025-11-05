@@ -57,7 +57,7 @@ export function Cart({
                 <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-rose-300">
                   Carrito
                 </h2>
-                <p className="text-pink-400 text-xs font-medium tracking-wide">
+                <p className="text-gray-600 text-xs font-medium tracking-wide">
                   {cart.length} {cart.length === 1 ? 'PRODUCTO' : 'PRODUCTOS'}
                 </p>
               </div>
@@ -66,10 +66,11 @@ export function Cart({
             <button
               onClick={onClose}
               className="group relative"
+              aria-label="Cerrar carrito de compras"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl blur-md opacity-0 group-hover:opacity-60 transition-opacity" />
               <div className="relative p-3 bg-pink-500/20 hover:bg-pink-500/30 rounded-xl transition-all border border-pink-500/30 group-hover:border-pink-400/50">
-                <X size={24} className="text-white group-hover:text-white transition-colors" />
+                <X size={24} className="text-white group-hover:text-white transition-colors" aria-hidden="true" />
               </div>
             </button>
           </div>
@@ -108,10 +109,10 @@ export function Cart({
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-xs text-pink-600 truncate drop-shadow-lg" style={{ textShadow: '0 0 10px #ec4899' }}>
+                      <h3 className="font-medium text-xs text-gray-800 truncate drop-shadow-lg" style={{ textShadow: '0 0 10px #ec4899' }}>
                         {item.name}
                       </h3>
-                      <p className="text-pink-600 font-semibold text-sm drop-shadow-lg" style={{ textShadow: '0 0 10px #ec4899' }}>
+                      <p className="text-gray-800 font-semibold text-sm drop-shadow-lg" style={{ textShadow: '0 0 10px #ec4899' }}>
                         {item.price.toFixed(2)} CUP
                       </p>
                       {item.selectedAccessories && item.selectedAccessories.length > 0 && (
@@ -119,17 +120,18 @@ export function Cart({
                           {item.selectedAccessories.map((cartAcc, idx) => (
                             <div key={idx} className="flex items-center justify-between">
                               <div className="flex items-center gap-1">
-                                <p className="text-xs text-pink-500 font-medium">
+                                <p className="text-xs text-gray-700 font-medium">
                                   + {cartAcc.accessory.name} (x{cartAcc.quantity})
                                 </p>
                                 <button
                                   onClick={() => onRemoveAccessory(item.id, cartAcc.accessory.id)}
                                   className="text-red-400 hover:text-red-300 text-xs ml-1"
+                                  aria-label={`Remover accesorio ${cartAcc.accessory.name} de ${item.name}`}
                                 >
                                   ×
                                 </button>
                               </div>
-                              <p className="text-xs text-pink-400">
+                              <p className="text-xs text-gray-600">
                                 +{(cartAcc.accessory.price * cartAcc.quantity).toFixed(2)} CUP
                               </p>
                             </div>
@@ -137,8 +139,8 @@ export function Cart({
                         </div>
                       )}
 
-                      <div className="mt-2 pt-2 border-t border-pink-200/30">
-                        <p className="text-xs text-pink-700 font-bold">
+                      <div className="mt-2 pt-2 border-t border-gray-300/30">
+                        <p className="text-xs text-gray-800 font-bold">
                             Subtotal: {(() => {
                               const itemTotal = item.price * item.quantity;
                               const accessoryTotal = item.selectedAccessories?.reduce((acc, cartAcc) =>
@@ -152,32 +154,35 @@ export function Cart({
                         <button
                           onClick={() => onUpdateQuantity(item.cartId, item.quantity - 1)}
                           className="group/btn relative"
+                          aria-label={`Disminuir cantidad de ${item.name}`}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 rounded blur-sm opacity-0 group-hover/btn:opacity-60 transition-opacity" />
                           <div className="relative p-1 bg-red-500/20 hover:bg-red-500/40 rounded transition-all border border-red-500/30">
-                            <Minus size={12} className="text-red-300" />
+                            <Minus size={12} className="text-red-300" aria-hidden="true" />
                           </div>
                         </button>
 
-                        <span className="font-semibold text-sm text-pink-600 w-6 text-center drop-shadow-lg" style={{ textShadow: '0 0 10px #ec4899' }}>
+                        <span className="font-semibold text-sm text-gray-800 w-6 text-center drop-shadow-lg" style={{ textShadow: '0 0 10px #ec4899' }}>
                           {item.quantity}
                         </span>
 
                         <button
                           onClick={() => onUpdateQuantity(item.cartId, item.quantity + 1)}
                           className="group/btn relative"
+                          aria-label={`Aumentar cantidad de ${item.name}`}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 rounded blur-sm opacity-0 group-hover/btn:opacity-60 transition-opacity" />
                           <div className="relative p-1 bg-green-500/20 hover:bg-green-500/40 rounded transition-all border border-green-500/30">
-                            <Plus size={12} className="text-green-300" />
+                            <Plus size={12} className="text-green-300" aria-hidden="true" />
                           </div>
                         </button>
 
                         <button
                           onClick={() => onRemove(item.cartId)}
                           className="ml-auto text-red-400 hover:text-red-300 text-xs font-medium uppercase transition-colors"
+                          aria-label={`Remover ${item.name} del carrito`}
                         >
-                          <X size={14} className="inline" />
+                          <X size={14} className="inline" aria-hidden="true" />
                         </button>
                       </div>
                     </div>
@@ -191,7 +196,7 @@ export function Cart({
                 <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-rose-500/5 rounded pointer-events-none" />
 
                 <div className="relative text-center">
-                  <div className="text-xs text-pink-400 font-medium tracking-wide mb-0.5">
+                  <div className="text-xs text-gray-700 font-medium tracking-wide mb-0.5">
                     TOTAL
                   </div>
                   <span className="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">
@@ -249,8 +254,9 @@ export function Cart({
                 disabled={!checkoutData.name.trim() || !checkoutData.address.trim() || checkoutData.phone.length !== 8}
                 className="w-full bg-green-500 text-white py-1.5 rounded-lg font-bold text-sm flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-400/50 disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ boxShadow: '0 0 15px rgba(34, 197, 94, 0.6), 0 0 30px rgba(34, 197, 94, 0.4)' }}
+                aria-label="Enviar pedido por WhatsApp"
               >
-                <MessageCircle size={14} />
+                <MessageCircle size={14} aria-hidden="true" />
                 ENVIAR
               </button>
             </div>
