@@ -138,6 +138,12 @@ function App() {
     }
   }, [cart, clearCart]);
 
+  // Reset cart on page load for development/testing
+  // Comment out for production to maintain cart persistence
+  // useEffect(() => {
+  //   resetCart();
+  // }, [resetCart]);
+
   const handleAddToCart = useCallback((flower: Flower) => {
     // Siempre mostrar modal de accesorios para ramos y macetas, incluso si ya hay uno en el carrito
     if (flower.category_id === '2' || flower.category_id === '3' || flower.category_id === '4') {

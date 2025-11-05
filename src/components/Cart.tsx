@@ -257,7 +257,7 @@ export function Cart({
                 aria-label="Enviar pedido por WhatsApp"
               >
                 <MessageCircle size={14} aria-hidden="true" />
-                ENVIAR
+                ENVIAR Y LIMPIAR CARRITO
               </button>
             </div>
           </>

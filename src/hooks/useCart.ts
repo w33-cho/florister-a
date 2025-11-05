@@ -101,6 +101,13 @@ export function useCart() {
 
   const clearCart = () => {
     setCart([]);
+    // Clear localStorage immediately when clearing cart
+    localStorage.removeItem('flower-cart');
+  };
+
+  const resetCart = () => {
+    setCart([]);
+    localStorage.removeItem('flower-cart');
   };
 
   const getTotalPrice = useCallback(() => {
@@ -132,6 +139,7 @@ export function useCart() {
     removeAccessory,
     updateQuantity,
     clearCart,
+    resetCart,
     getTotalPrice,
     getTotalItems
   };

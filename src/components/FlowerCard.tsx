@@ -1,6 +1,6 @@
 import { ShoppingCart, Plus, Minus } from 'lucide-react';
 import { Flower, CartItem } from '../lib/types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface FlowerCardProps {
   flower: Flower;
@@ -11,6 +11,11 @@ interface FlowerCardProps {
 
 export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: FlowerCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Development helper: Reset cart on mount (remove in production)
+  useEffect(() => {
+    localStorage.removeItem('flower-cart');
+  }, []);
 
   return (
     <div className="group relative" style={{ contain: 'layout style paint' }}>
