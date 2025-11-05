@@ -5,21 +5,9 @@ export function useCart() {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   useEffect(() => {
-    // Always start with empty cart for better user experience
-    // Cart persistence can cause confusion when users return to the site
-    // Comment out the lines below if you want to restore persistence
-
-    /*
-    const startTime = performance.now();
-    const savedCart = localStorage.getItem('flower-cart');
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
-    }
-    const duration = performance.now() - startTime;
-    if (duration > 5) {
-      console.log('[Storage Performance] localStorage read took', duration, 'ms');
-    }
-    */
+    // Always start with empty cart - clear any existing data
+    localStorage.removeItem('flower-cart');
+    setCart([]);
   }, []);
 
   useEffect(() => {
