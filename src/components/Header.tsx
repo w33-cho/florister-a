@@ -11,22 +11,19 @@ export function Header({ cartItemsCount, onOpenCart }: HeaderProps) {
       <div>
         <div className="container mx-auto px-6 py-5">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4 group">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full blur-xl opacity-60 group-hover:opacity-100 transition-opacity" />
-                <div className="relative bg-white p-1.5 rounded-full shadow-xl overflow-hidden">
-                  <img
-                    src="/clararamos CIRCULAR.webp"
-                    alt="Clara Ramos Logo"
-                    className="w-20 h-20 rounded-full object-cover"
-                  />
-                </div>
+            <div className="flex items-center gap-2 sm:gap-4 group">
+              <div className="relative bg-white p-1.5 rounded-full shadow-xl overflow-hidden">
+                <img
+                  src="/logo creaciones isis.webp"
+                  alt="Clara Ramos Logo"
+                  className="w-12 h-12 sm:w-20 sm:h-20 object-contain"
+                />
               </div>
 
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
-                  <h1 className="text-3xl sm:text-4xl font-black text-white drop-shadow-2xl whitespace-nowrap">
-                    Ramos Isis
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white drop-shadow-2xl whitespace-nowrap">
+                    Creaciones Isis
                   </h1>
                   <Sparkles size={24} className="hidden sm:block text-white animate-pulse flex-shrink-0" />
                 </div>

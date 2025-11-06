@@ -19,12 +19,12 @@ const srOnly = `
 const carouselImages = [
   {
     url: '/Carrusel/20250821_123956.webp',
-    title: 'Ramos Isis',
+    title: 'Creaciones Isis',
     subtitle: 'Belleza y elegancia en cada detalle'
   },
   {
     url: '/Carrusel/20250829_070914.webp',
-    title: 'Ramos artificiales',
+    title: 'Creaciones Isis',
     subtitle: 'Con accesorios increíbles'
   },
   {
