@@ -22,8 +22,8 @@ async function optimizeImages() {
   const compressedFiles = await imagemin(['public/**/*.{jpg,jpeg,png}'], {
     destination: outputDir,
     plugins: [
-      imageminMozjpeg({ quality: 70 }),
-      imageminPngquant({ quality: [0.6, 0.8] })
+      imageminMozjpeg({ quality: 50 }),
+      imageminPngquant({ quality: [0.5, 0.7] })
     ]
   });
 
@@ -34,7 +34,7 @@ async function optimizeImages() {
     const webpFiles = await imagemin(['public/**/*.{jpg,jpeg,png}'], {
       destination: outputDir,
       plugins: [
-        imageminWebp({ quality: 70 })
+        imageminWebp({ quality: 50 })
       ]
     });
     console.log(`Converted ${webpFiles.length} images to WebP`);

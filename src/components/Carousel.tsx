@@ -120,7 +120,7 @@ export function Carousel() {
             <img
               src={image.url}
               alt={image.title}
-              loading={index === 0 ? "eager" : "lazy"}
+              loading="eager"
               fetchPriority={index === 0 ? "high" : "low"}
               decoding="async"
               onLoad={() => {
