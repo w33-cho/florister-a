@@ -325,7 +325,7 @@ function App() {
             <div className="inline-flex items-center gap-3 mb-4">
               <Sparkles className="text-pink-400" size={28} aria-hidden="true" />
               <h3 className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-rose-300">
-                Ramos Isis
+                Creaciones Isis
               </h3>
               <Sparkles className="text-pink-400" size={28} aria-hidden="true" />
             </div>
@@ -333,7 +333,7 @@ function App() {
           </div>
 
           <div className="border-t border-pink-500/20 pt-6 mt-6">
-            <p className="text-pink-700 font-medium">© 2025 Floristería Ramos Isis. Todos los derechos reservados.</p>
+            <p className="text-pink-700 font-medium">© 2025 Floristería Creaciones Isis. Todos los derechos reservados.</p>
             <p className="text-pink-600 text-sm mt-2 font-semibold">
               Contacto WhatsApp:{' '}
               <a
