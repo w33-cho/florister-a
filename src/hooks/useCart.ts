@@ -76,42 +76,102 @@ export function useCart() {
     }
   }, []);
 
-  const removeFromCart = (cartId: string) => {
-    setCart(prevCart => prevCart.filter(item => item.cartId !== cartId));
-  };
+  const removeFromCart = useCallback((cartId: string) => {
+    // Use requestIdleCallback for non-blocking cart updates
+    const updateCart = () => {
+      const startTime = performance.now();
+      setCart(prevCart => prevCart.filter(item => item.cartId !== cartId));
+      const duration = performance.now() - startTime;
+      if (duration > 5) {
+        console.log('[Cart Performance] removeFromCart took', duration, 'ms');
+      }
+    };
 
-  const removeAccessory = (flowerId: string, accessoryId: string) => {
-    setCart(prevCart =>
-      prevCart.map(item => {
-        if (item.id === flowerId && item.selectedAccessories) {
-          const updatedAccessories = item.selectedAccessories.filter(
-            cartAcc => cartAcc.accessory.id !== accessoryId
-          );
-          return { ...item, selectedAccessories: updatedAccessories };
-        }
-        return item;
-      }).filter(item => item.selectedAccessories?.length !== 0 || item.quantity > 0)
-    );
-  };
+    // Schedule for idle time if available, otherwise execute immediately
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(updateCart, { timeout: 50 });
+    } else {
+      updateCart();
+    }
+  }, []);
 
-  const updateQuantity = (cartId: string, quantity: number) => {
+  const removeAccessory = useCallback((flowerId: string, accessoryId: string) => {
+    // Use requestIdleCallback for non-blocking cart updates
+    const updateCart = () => {
+      const startTime = performance.now();
+      setCart(prevCart =>
+        prevCart.map(item => {
+          if (item.id === flowerId && item.selectedAccessories) {
+            const updatedAccessories = item.selectedAccessories.filter(
+              cartAcc => cartAcc.accessory.id !== accessoryId
+            );
+            return { ...item, selectedAccessories: updatedAccessories };
+          }
+          return item;
+        }).filter(item => item.selectedAccessories?.length !== 0 || item.quantity > 0)
+      );
+      const duration = performance.now() - startTime;
+      if (duration > 5) {
+        console.log('[Cart Performance] removeAccessory took', duration, 'ms');
+      }
+    };
+
+    // Schedule for idle time if available, otherwise execute immediately
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(updateCart, { timeout: 50 });
+    } else {
+      updateCart();
+    }
+  }, []);
+
+  const updateQuantity = useCallback((cartId: string, quantity: number) => {
     if (quantity <= 0) {
       removeFromCart(cartId);
       return;
     }
 
-    setCart(prevCart =>
-      prevCart.map(item =>
-        item.cartId === cartId ? { ...item, quantity } : item
-      )
-    );
-  };
+    // Use requestIdleCallback for non-blocking cart updates
+    const updateCart = () => {
+      const startTime = performance.now();
+      setCart(prevCart =>
+        prevCart.map(item =>
+          item.cartId === cartId ? { ...item, quantity } : item
+        )
+      );
+      const duration = performance.now() - startTime;
+      if (duration > 5) {
+        console.log('[Cart Performance] updateQuantity took', duration, 'ms');
+      }
+    };
 
-  const clearCart = () => {
-    setCart([]);
-    // Clear localStorage immediately when clearing cart
-    localStorage.removeItem('flower-cart');
-  };
+    // Schedule for idle time if available, otherwise execute immediately
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(updateCart, { timeout: 50 });
+    } else {
+      updateCart();
+    }
+  }, [removeFromCart]);
+
+  const clearCart = useCallback(() => {
+    // Use requestIdleCallback for non-blocking cart updates
+    const updateCart = () => {
+      const startTime = performance.now();
+      setCart([]);
+      // Clear localStorage immediately when clearing cart
+      localStorage.removeItem('flower-cart');
+      const duration = performance.now() - startTime;
+      if (duration > 5) {
+        console.log('[Cart Performance] clearCart took', duration, 'ms');
+      }
+    };
+
+    // Schedule for idle time if available, otherwise execute immediately
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(updateCart, { timeout: 50 });
+    } else {
+      updateCart();
+    }
+  }, []);
 
   const resetCart = () => {
     setCart([]);

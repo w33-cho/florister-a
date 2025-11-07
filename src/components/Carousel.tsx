@@ -18,17 +18,17 @@ const srOnly = `
 
 const carouselImages = [
   {
-    url: '/Carrusel/20250821_123956.webp',
+    url: '/optimized/20250821_123956.webp',
     title: 'Creaciones Isis',
     subtitle: 'Belleza y elegancia en cada detalle'
   },
   {
-    url: '/Carrusel/20250829_070914.webp',
+    url: '/optimized/20250829_070914.webp',
     title: 'Creaciones Isis',
     subtitle: 'Con accesorios increíbles'
   },
   {
-    url: '/Carrusel/20250923_072044.webp',
+    url: '/optimized/20250923_072044.webp',
     title: 'Momentos Especiales',
     subtitle: 'Perfectos para cada ocasión'
   }
@@ -123,6 +123,8 @@ export function Carousel() {
               loading="eager"
               fetchPriority={index === 0 ? "high" : "low"}
               decoding="async"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 1400px"
+              srcSet={`${image.url} 1400w, ${image.url.replace('.webp', '_medium.webp')} 800w, ${image.url.replace('.webp', '_small.webp')} 400w`}
               onLoad={() => {
                 setImagesLoaded(prev => {
                   const newLoaded = [...prev];

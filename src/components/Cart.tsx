@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { X, Plus, Minus, ShoppingBag, MessageCircle } from 'lucide-react';
 import { CartItem } from '../lib/types';
 import { CheckoutData } from './CheckoutForm';
@@ -29,6 +29,29 @@ export function Cart({
     address: '',
     phone: ''
   });
+
+  // Debounced state updates to prevent excessive re-renders and crashes
+  const [debouncedData, setDebouncedData] = useState<CheckoutData>(checkoutData);
+
+  // Update checkoutData from debounced data
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setCheckoutData(debouncedData);
+    }, 100); // 100ms debounce
+
+    return () => clearTimeout(timeoutId);
+  }, [debouncedData]);
+
+  // Optimize cart close performance
+  const handleClose = useCallback(() => {
+    // Use requestIdleCallback for smooth closing animation
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => onClose(), { timeout: 16 });
+    } else {
+      onClose();
+    }
+  }, [onClose]);
+
   if (!isOpen) return null;
 
   return (
@@ -64,7 +87,7 @@ export function Cart({
             </div>
 
             <button
-              onClick={onClose}
+              onClick={handleClose}
               className="group relative"
               aria-label="Cerrar carrito de compras"
             >
@@ -124,7 +147,15 @@ export function Cart({
                                   + {cartAcc.accessory.name} (x{cartAcc.quantity})
                                 </p>
                                 <button
-                                  onClick={() => onRemoveAccessory(item.id, cartAcc.accessory.id)}
+                                  onClick={() => {
+                                    // Optimize accessory removal performance
+                                    const removeAccessory = () => onRemoveAccessory(item.id, cartAcc.accessory.id);
+                                    if ('requestIdleCallback' in window) {
+                                      requestIdleCallback(removeAccessory, { timeout: 16 });
+                                    } else {
+                                      removeAccessory();
+                                    }
+                                  }}
                                   className="text-red-400 hover:text-red-300 text-xs ml-1"
                                   aria-label={`Remover accesorio ${cartAcc.accessory.name} de ${item.name}`}
                                 >
@@ -152,7 +183,15 @@ export function Cart({
 
                       <div className="flex items-center gap-1.5 mt-1">
                         <button
-                          onClick={() => onUpdateQuantity(item.cartId, item.quantity - 1)}
+                          onClick={() => {
+                            // Debounce quantity updates to prevent rapid clicking
+                            const updateQuantity = () => onUpdateQuantity(item.cartId, item.quantity - 1);
+                            if ('requestIdleCallback' in window) {
+                              requestIdleCallback(updateQuantity, { timeout: 16 });
+                            } else {
+                              updateQuantity();
+                            }
+                          }}
                           className="group/btn relative"
                           aria-label={`Disminuir cantidad de ${item.name}`}
                         >
@@ -167,7 +206,15 @@ export function Cart({
                         </span>
 
                         <button
-                          onClick={() => onUpdateQuantity(item.cartId, item.quantity + 1)}
+                          onClick={() => {
+                            // Debounce quantity updates to prevent rapid clicking
+                            const updateQuantity = () => onUpdateQuantity(item.cartId, item.quantity + 1);
+                            if ('requestIdleCallback' in window) {
+                              requestIdleCallback(updateQuantity, { timeout: 16 });
+                            } else {
+                              updateQuantity();
+                            }
+                          }}
                           className="group/btn relative"
                           aria-label={`Aumentar cantidad de ${item.name}`}
                         >
@@ -178,7 +225,15 @@ export function Cart({
                         </button>
 
                         <button
-                          onClick={() => onRemove(item.cartId)}
+                          onClick={() => {
+                            // Optimize remove operation performance
+                            const removeItem = () => onRemove(item.cartId);
+                            if ('requestIdleCallback' in window) {
+                              requestIdleCallback(removeItem, { timeout: 16 });
+                            } else {
+                              removeItem();
+                            }
+                          }}
                           className="ml-auto text-red-400 hover:text-red-300 text-xs font-medium uppercase transition-colors"
                           aria-label={`Remover ${item.name} del carrito`}
                         >
@@ -214,8 +269,9 @@ export function Cart({
                       placeholder="Tu nombre"
                       value={checkoutData.name}
                       onChange={(e) => {
+                        // Debounce input updates to prevent excessive re-renders
                         const value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
-                        setCheckoutData(prev => ({ ...prev, name: value }));
+                        setDebouncedData(prev => ({ ...prev, name: value }));
                       }}
                       className="w-full bg-white border border-gray-300 rounded px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 text-sm"
                     />
@@ -225,7 +281,10 @@ export function Cart({
                     <textarea
                       placeholder="Tu dirección"
                       value={checkoutData.address}
-                      onChange={(e) => setCheckoutData(prev => ({ ...prev, address: e.target.value }))}
+                      onChange={(e) => {
+                        // Debounce textarea updates to prevent excessive re-renders
+                        setDebouncedData(prev => ({ ...prev, address: e.target.value }));
+                      }}
                       rows={2}
                       className="w-full bg-white border border-gray-300 rounded px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 text-sm resize-none"
                     />
@@ -239,8 +298,9 @@ export function Cart({
                         placeholder="12345678"
                         value={checkoutData.phone}
                         onChange={(e) => {
+                          // Debounce phone input updates to prevent excessive re-renders
                           const value = e.target.value.replace(/\D/g, '').slice(0, 8);
-                          setCheckoutData(prev => ({ ...prev, phone: value }));
+                          setDebouncedData(prev => ({ ...prev, phone: value }));
                         }}
                         className="w-full bg-white border border-gray-300 rounded px-3 pl-12 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 text-sm"
                       />

@@ -232,7 +232,7 @@ function App() {
       <main id="main-content" className="relative z-20 pt-8" role="main">
         <div className="container mx-auto px-4 pb-16">
           <div className="mb-8 text-center">
-            <div className="relative inline-block">
+            <div className="relative inline-block" style={{ minHeight: '120px' }}>
               <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-rose-500/20 rounded-2xl blur-xl" />
               <div className="relative bg-gradient-to-br from-pink-50/90 to-rose-50/90 backdrop-blur-sm rounded-2xl p-6 border border-pink-300/50 shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-rose-500/5 rounded-2xl pointer-events-none" />

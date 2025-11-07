@@ -14,7 +14,7 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
 
 
   return (
-    <div className="group relative" style={{ contain: 'layout style paint' }}>
+    <div className="group relative" style={{ contain: 'layout style paint', minHeight: '512px' }}>
       <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl overflow-hidden border border-pink-300/50 shadow-2xl shadow-pink-200/50 transform group-hover:scale-105 group-hover:border-pink-400/60 transition-all duration-500 h-[32rem] flex flex-col" style={{ contain: 'layout style' }}>
@@ -31,6 +31,7 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
             decoding="async"
             fetchPriority="low"
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            srcSet={`${flower.image_url} 448w, ${flower.image_url.replace('.webp', '_small.webp')} 224w`}
             onLoad={() => setImageLoaded(true)}
             onError={() => setImageLoaded(true)}
             className={`w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
