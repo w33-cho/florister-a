@@ -1,11 +1,6 @@
 {
   "categories": [
     {
-      "id": "1",
-      "name": "Accesorios",
-      "description": "Accesorios para el cuidado y decoración floral"
-    },
-    {
       "id": "3",
       "name": "Ramos",
       "description": "Ramos frescos y hermosos"
@@ -19,6 +14,11 @@
       "id": "2",
       "name": "Macetas",
       "description": "Macetas decorativas de diversos estilos"
+    },
+    {
+      "id": "1",
+      "name": "Accesorios",
+      "description": "Accesorios para el cuidado y decoración floral"
     }
   ],
   "flowers": [
@@ -26,7 +26,7 @@
       "id": "1",
       "name": "Mariposa",
       "price": 70,
-      "image_url": "/optimized/Gemini_Generated_Image_239jeq239jeq239j.webp",
+      "image_url": "/public/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.webp",
       "category_id": "1"
     },
     {
@@ -34,119 +34,119 @@
       "name": "Postales Personalizadas",
       "description": "Con frases, nombres y fotos",
       "price": 250,
-      "image_url": "/optimized/Gemini_Generated_Image_7jihmy7jihmy7jih.webp",
+      "image_url": "/public/Accesorios/Gemini_Generated_Image_7jihmy7jihmy7jih.webp",
       "category_id": "1"
     },
     {
       "id": "3",
       "name": "Luces Led",
       "price": 480,
-      "image_url": "/optimized/Gemini_Generated_Image_nm3wghnm3wghnm3w.webp",
+      "image_url": "/public/Accesorios/Gemini_Generated_Image_nm3wghnm3wghnm3w.webp",
       "category_id": "1"
     },
     {
       "id": "4",
       "name": "Maceta #1",
       "price": 1000,
-      "image_url": "/optimized/6515615.webp",
+      "image_url": "/public/Macetas/6515615.webp",
       "category_id": "2"
     },
     {
       "id": "5",
       "name": "Maceta #2",
       "price": 500,
-      "image_url": "/optimized/20250517_080941.webp",
+      "image_url": "/public/Macetas/20250517_080941.webp",
       "category_id": "2"
     },
     {
       "id": "6",
       "name": "Maceta #3",
       "price": 600,
-      "image_url": "/optimized/20250611_072402.webp",
+      "image_url": "/public/Macetas/20250611_072402.webp",
       "category_id": "2"
     },
     {
       "id": "13",
       "name": "Maceta #4",
       "price": 500,
-      "image_url": "/optimized/20250630_070439.webp",
+      "image_url": "/public/Macetas/20250630_070439.webp",
       "category_id": "2"
     },
     {
       "id": "14",
       "name": "Maceta #5",
       "price": 150,
-      "image_url": "/optimized/Capa 2.webp",
+      "image_url": "/public/Macetas/Capa 2.webp",
       "category_id": "2"
     },
     {
       "id": "15",
       "name": "Maceta #6",
       "price": 350,
-      "image_url": "/optimized/xc.webp",
+      "image_url": "/public/Macetas/xc.webp",
       "category_id": "2"
     },
     {
       "id": "8",
       "name": "Ramo de 5 Rosas",
       "price": 2000,
-      "image_url": "/optimized/pp.webp",
+      "image_url": "/public/Ramos/pp.webp",
       "category_id": "3"
     },
     {
       "id": "9",
       "name": "Ramo de 6 Rosas",
       "price": 2900,
-      "image_url": "/optimized/Gemini_Generated_Image_ii9la7ii9la7ii9l.webp",
+      "image_url": "/public/Ramos/Gemini_Generated_Image_ii9la7ii9la7ii9l.webp",
       "category_id": "3"
     },
     {
       "id": "10",
       "name": "Ramo Grande Estandar Luminoso ",
       "price": 7500,
-      "image_url": "/optimized/20250829_070908.webp",
+      "image_url": "/public/Ramos Lumínicos/20250829_070908.webp",
       "category_id": "4"
     },
     {
       "id": "11",
       "name": "Ramo Alas de Mariposa Luminoso",
       "price": 7500,
-      "image_url": "/optimized/20250923_070757.webp",
+      "image_url": "/public/Ramos Lumínicos/20250923_070757.webp",
       "category_id": "4"
     },
     {
       "id": "27",
       "name": "Ramo Circular",
       "price": 75.00,
-      "image_url": "/optimized/20251022_072836.webp",
+      "image_url": "/public/Ramos Lumínicos/20251022_072836.webp",
       "category_id": "4"
     },
     {
       "id": "16",
       "name": "Ramo de 1 Rosa o Botón",
       "price": 450,
-      "image_url": "/optimized/20250921_095416.webp",
+      "image_url": "/public/Ramos/20250921_095416.webp",
       "category_id": "3"
     },
     {
       "id": "20",
       "name": "Ramo de 3 Rosas y un Botón",
       "price": 1600,
-      "image_url": "/optimized/20251002_072536.webp",
+      "image_url": "/public/Ramos/20251002_072536.webp",
       "category_id": "3"
     },
     {
       "id": "21",
       "name": "Ramo de 4 Rosas",
       "price": 1650,
-      "image_url": "/optimized/20251022_080131.webp",
+      "image_url": "/public/Ramos/20251022_080131.webp",
       "category_id": "3"
     },
     {
       "id": "22",
       "name": "Ramo de 4 Botones",
       "price": 1600,
-      "image_url": "/optimized/ante.webp",
+      "image_url": "/public/Ramos/ante.webp",
       "category_id": "3"
     }
   ],
@@ -156,21 +156,21 @@
       "name": "Mariposa",
       "description": "Decoración floral adicional",
       "price": 70,
-      "image_url": "/optimized/Gemini_Generated_Image_239jeq239jeq239j.webp"
+      "image_url": "/public/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.webp"
     },
     {
       "id": "2",
       "name": "Postales Personalizadas",
       "description": "Con frases, nombres y fotos",
       "price": 250,
-      "image_url": "/optimized/Gemini_Generated_Image_7jihmy7jihmy7jih.webp"
+      "image_url": "/public/Accesorios/Gemini_Generated_Image_7jihmy7jihmy7jih.webp"
     },
     {
       "id": "3",
       "name": "Luces Led",
       "description": "Iluminación LED para decorar",
       "price": 480,
-      "image_url": "/optimized/Gemini_Generated_Image_nm3wghnm3wghnm3w.webp"
+      "image_url": "/public/Accesorios/Gemini_Generated_Image_nm3wghnm3wghnm3w.webp"
     }
   ]
 }
