@@ -18,17 +18,17 @@ const srOnly = `
 
 const carouselImages = [
   {
-    url: '/public/Carrusel/20250821_123956.webp',
+    url: '/Carrusel/20250821_123956.webp',
     title: 'Creaciones Isis',
     subtitle: 'Belleza y elegancia en cada detalle'
   },
   {
-    url: '/public/Carrusel/20250829_070914.webp',
+    url: '/Carrusel/20250829_070914.webp',
     title: 'Creaciones Isis',
     subtitle: 'Con accesorios increíbles'
   },
   {
-    url: '/public/Carrusel/20250923_072044.webp',
+    url: '/Carrusel/20250923_072044.webp',
     title: 'Momentos Especiales',
     subtitle: 'Perfectos para cada ocasión'
   }
