@@ -1,19 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import viteCompression from 'vite-plugin-compression';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    viteCompression({
-      algorithm: 'gzip',
-      ext: '.gz',
-    }),
-    viteCompression({
-      algorithm: 'brotliCompress',
-      ext: '.br',
-    }),
   ],
   build: {
     rollupOptions: {
@@ -61,7 +52,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000, // Warn for large chunks
     cssCodeSplit: true,
     sourcemap: false,
-    cssMinify: 'lightningcss',
+    cssMinify: true,
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'lucide-react'],

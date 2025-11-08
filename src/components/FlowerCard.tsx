@@ -1,6 +1,6 @@
 import { ShoppingCart, Plus, Minus } from 'lucide-react';
 import { Flower, CartItem } from '../lib/types';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface FlowerCardProps {
   flower: Flower;
@@ -11,6 +11,26 @@ interface FlowerCardProps {
 
 export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: FlowerCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
 
   return (
@@ -25,13 +45,14 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
             </div>
           )}
           <img
-            src={flower.image_url}
+            ref={imgRef}
+            src={isVisible ? flower.image_url : undefined}
             alt={flower.name}
             loading="lazy"
             decoding="async"
             fetchPriority="low"
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            srcSet={`${flower.image_url} 448w, ${flower.image_url.replace('.webp', '_small.webp')} 224w`}
+            srcSet={isVisible ? `${flower.image_url} 448w, ${flower.image_url.replace('.webp', '_small.webp')} 224w` : undefined}
             onLoad={() => setImageLoaded(true)}
             onError={() => setImageLoaded(true)}
             className={`w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
