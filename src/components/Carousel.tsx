@@ -124,7 +124,6 @@ export function Carousel() {
               fetchPriority={index === 0 ? "high" : "low"}
               decoding="async"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 1400px"
-              srcSet={`${image.url} 1400w, ${image.url.replace('.webp', '_medium.webp')} 800w, ${image.url.replace('.webp', '_small.webp')} 400w`}
               onLoad={() => {
                 setImagesLoaded(prev => {
                   const newLoaded = [...prev];
