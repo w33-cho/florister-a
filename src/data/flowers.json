@@ -26,128 +26,860 @@
       "id": "1",
       "name": "Mariposa",
       "price": 70,
-      "image_url": "/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.webp",
-      "category_id": "1"
+      "image_url": "/Accesorios/Gemini_Generated_Image_239jeq239jeq239j.webp"
     },
     {
       "id": "2",
       "name": "Postales Personalizadas",
       "description": "Con frases, nombres y fotos",
       "price": 250,
-      "image_url": "/Accesorios/Gemini_Generated_Image_7jihmy7jihmy7jih.webp",
-      "category_id": "1"
+      "image_url": "/Accesorios/Gemini_Generated_Image_7jihmy7jihmy7jih.webp"
     },
     {
       "id": "3",
       "name": "Luces Led",
       "price": 480,
-      "image_url": "/Accesorios/Gemini_Generated_Image_nm3wghnm3wghnm3w.webp",
-      "category_id": "1"
+      "image_url": "/Accesorios/Gemini_Generated_Image_nm3wghnm3wghnm3w.webp"
     },
     {
       "id": "4",
       "name": "Maceta #1",
       "price": 1000,
-      "image_url": "/Macetas/6515615.webp",
-      "category_id": "2"
+      "image_url": "/Macetas/6515615.webp"
     },
     {
       "id": "5",
       "name": "Maceta #2",
       "price": 500,
-      "image_url": "/Macetas/20250517_080941.webp",
-      "category_id": "2"
+      "image_url": "/Macetas/20250517_080941.webp"
     },
     {
       "id": "6",
       "name": "Maceta #3",
       "price": 600,
-      "image_url": "/Macetas/20250611_072402.webp",
-      "category_id": "2"
+      "image_url": "/Macetas/20250611_072402.webp"
     },
     {
       "id": "13",
       "name": "Maceta #4",
       "price": 500,
-      "image_url": "/Macetas/20250630_070439.webp",
-      "category_id": "2"
+      "image_url": "/Macetas/20250630_070439.webp"
     },
     {
       "id": "14",
       "name": "Maceta #5",
       "price": 150,
-      "image_url": "/Macetas/Capa 2.webp",
-      "category_id": "2"
+      "image_url": "/Macetas/Capa 2.webp"
     },
     {
       "id": "15",
       "name": "Maceta #6",
       "price": 350,
-      "image_url": "/Macetas/xc.webp",
-      "category_id": "2"
+      "image_url": "/Macetas/xc.webp"
     },
     {
       "id": "8",
-      "name": "Ramo de 5 Rosas",
+      "name": "Ramo de 5 Rosas Blancas",
       "price": 2000,
-      "image_url": "/Ramos/pp.webp",
-      "category_id": "3"
+      "image_url": "/Ramos/pp.webp"
     },
     {
       "id": "9",
-      "name": "Ramo de 6 Rosas",
+      "name": "Ramo de 6 Rosas Rosadas",
       "price": 2900,
-      "image_url": "/Ramos/Gemini_Generated_Image_ii9la7ii9la7ii9l.webp",
-      "category_id": "3"
+      "image_url": "/Ramos/Gemini_Generated_Image_ii9la7ii9la7ii9l.webp"
     },
     {
       "id": "10",
       "name": "Ramo Grande Estandar Luminoso ",
       "price": 7500,
-      "image_url": "/Ramos Lumínicos/20250829_070908.webp",
-      "category_id": "4"
+      "image_url": "/Ramos Lumínicos/20250829_070908.webp"
     },
     {
       "id": "11",
       "name": "Ramo Alas de Mariposa Luminoso",
       "price": 7500,
-      "image_url": "/Ramos Lumínicos/20250923_070757.webp",
-      "category_id": "4"
+      "image_url": "/Ramos Lumínicos/20250923_070757.webp"
     },
     {
       "id": "27",
       "name": "Ramo Circular",
-      "price": 75.00,
-      "image_url": "/Ramos Lumínicos/20251022_072836.webp",
-      "category_id": "4"
+      "price": 7500,
+      "image_url": "/Ramos Lumínicos/20251022_072836.webp"
     },
     {
       "id": "16",
-      "name": "Ramo de 1 Rosa o Botón",
+      "name": "Ramo de 1 Rosa o Botón Amarillo",
       "price": 450,
-      "image_url": "/Ramos/20250921_095416.webp",
-      "category_id": "3"
+      "image_url": "/Ramos/20250921_095416.webp"
     },
     {
       "id": "20",
-      "name": "Ramo de 3 Rosas y un Botón",
+      "name": "Ramo de 3 Rosas y un Botón Azul",
       "price": 1600,
-      "image_url": "/Ramos/20251002_072536.webp",
-      "category_id": "3"
+      "image_url": "/Ramos/20251002_072536.webp"
     },
     {
       "id": "21",
-      "name": "Ramo de 4 Rosas",
+      "name": "Ramo de 4 Rosas Azul",
       "price": 1650,
-      "image_url": "/Ramos/20251022_080131.webp",
-      "category_id": "3"
+      "image_url": "/Ramos/20251022_080131.webp"
     },
     {
       "id": "22",
-      "name": "Ramo de 4 Botones",
+      "name": "Ramo de 4 Botones Violeta",
       "price": 1600,
-      "image_url": "/Ramos/ante.webp",
-      "category_id": "3"
+      "image_url": "/Ramos/ante.webp"
+    },
+    {
+      "id": "otras_0",
+      "name": "Flor 1",
+      "price": 500,
+      "image_url": "/Otras/f1.webp"
+    },
+    {
+      "id": "otras_1",
+      "name": "Ramo de 4 Rosas Rosado",
+      "price": 1650,
+      "image_url": "/Otras/f2.webp"
+    },
+    {
+      "id": "otras_2",
+      "name": "Ramo 6 Rosas Rosadas y Luces Led",
+      "price": 3380,
+      "image_url": "/Otras/f3.webp"
+    },
+    {
+      "id": "otras_3",
+      "name": "Ramo 3 Rosas y un Botón Azul",
+      "price": 1600,
+      "image_url": "/Otras/f4.webp"
+    },
+    {
+      "id": "otras_6",
+      "name": "Ramo 3 Rosas, un Botón Amarillo y una Mariposa",
+      "price": 1670,
+      "image_url": "/Otras/f7.webp"
+    },
+    {
+      "id": "otras_7",
+      "name": "Ramo 3 Rosas, un Botón Amarillo, una Mariposa y luces Led",
+      "price": 2150,
+      "image_url": "/Otras/f8.webp"
+    },
+    {
+      "id": "otras_8",
+      "name": "Ramo 6 Rosas, y una Postal Personalizada",
+      "price": 3150,
+      "image_url": "/Otras/f9.webp"
+    },
+    {
+      "id": "otras_9",
+      "name": "Ramo 3 Rosas y un Botón Rosado Oscuro",
+      "price": 1600,
+      "image_url": "/Otras/f10.webp"
+    },
+    {
+      "id": "otras_10",
+      "name": "Ramo 6 Botones Blancos",
+      "price": 2850,
+      "image_url": "/Otras/f11.webp"
+    },
+    {
+      "id": "otras_11",
+      "name": "Ramo 4 Rosas Rojas",
+      "price": 1650,
+      "image_url": "/Otras/f12.webp"
+    },
+    {
+      "id": "otras_12",
+      "name": "Ramo 3 Rosas, un Botón Azul y una Postal Personalizada",
+      "price": 1850,
+      "image_url": "/Otras/f13.webp"
+    },
+    {
+      "id": "otras_13",
+      "name": "Ramo 3 Rosas y un Botón Rosado Claro",
+      "price": 1600,
+      "image_url": "/Otras/f14.webp"
+    },
+    {
+      "id": "otras_14",
+      "name": "Ramo 4 Rosas Amarillas y una Mariposa",
+      "price": 1720,
+      "image_url": "/Otras/f15.webp"
+    },
+    {
+      "id": "otras_15",
+      "name": "Ramo 5 Rosas Rojas",
+      "price": 2000,
+      "image_url": "/Otras/f16.webp"
+    },
+    {
+      "id": "otras_16",
+      "name": "Ramo 5 Rosas Verdes y dos Mariposas",
+      "price": 2140,
+      "image_url": "/Otras/f17.webp"
+    },
+    {
+      "id": "otras_17",
+      "name": "Ramo 3 Rosas y un Botón Rosado",
+      "price": 1600,
+      "image_url": "/Otras/f18.webp"
+    },
+    {
+      "id": "otras_18",
+      "name": "Ramo 3 Rosas y un Botón Rosado Tenue",
+      "price": 1600,
+      "image_url": "/Otras/f19.webp"
+    },
+    {
+      "id": "otras_19",
+      "name": "Ramo 3 Botones Rojos",
+      "price": 1200,
+      "image_url": "/Otras/f20.webp"
+    },
+    {
+      "id": "otras_20",
+      "name": "Ramo 3 Rosas y un Botón Rojo ",
+      "price": 1600,
+      "image_url": "/Otras/f21.webp"
+    },
+    {
+      "id": "otras_21",
+      "name": "Ramo 3 Rosas, un Botón Rojo Intenso y Luces Led",
+      "price": 2080,
+      "image_url": "/Otras/f22.webp"
+    },
+    {
+      "id": "otras_22",
+      "name": "Flor Ramo 3 Rosas y un Botón Rojo Intenso",
+      "price": 1600,
+      "image_url": "/Otras/f23.webp"
+    },
+    {
+      "id": "otras_23",
+      "name": "Ramo 4 Botones Rojo ",
+      "price": 1600,
+      "image_url": "/Otras/f24.webp"
+    },
+    {
+      "id": "otras_24",
+      "name": "Ramo 4 Rosas Rosado Claro",
+      "price": 1650,
+      "image_url": "/Otras/f25.webp"
+    },
+    {
+      "id": "otras_25",
+      "name": "Flor 26",
+      "price": 500,
+      "image_url": "/Otras/f26.webp"
+    },
+    {
+      "id": "otras_26",
+      "name": "Flor 27",
+      "price": 500,
+      "image_url": "/Otras/f27.webp"
+    },
+    {
+      "id": "otras_27",
+      "name": "Flor 28",
+      "price": 500,
+      "image_url": "/Otras/f28.webp"
+    },
+    {
+      "id": "otras_28",
+      "name": "Flor 29",
+      "price": 500,
+      "image_url": "/Otras/f29.webp"
+    },
+    {
+      "id": "otras_29",
+      "name": "Flor 30",
+      "price": 500,
+      "image_url": "/Otras/f30.webp"
+    },
+    {
+      "id": "otras_30",
+      "name": "Flor 31",
+      "price": 500,
+      "image_url": "/Otras/f31.webp"
+    },
+    {
+      "id": "otras_31",
+      "name": "Flor 32",
+      "price": 500,
+      "image_url": "/Otras/f32.webp"
+    },
+    {
+      "id": "otras_32",
+      "name": "Flor 33",
+      "price": 500,
+      "image_url": "/Otras/f33.webp"
+    },
+    {
+      "id": "otras_33",
+      "name": "Flor 34",
+      "price": 500,
+      "image_url": "/Otras/f34.webp"
+    },
+    {
+      "id": "otras_34",
+      "name": "Flor 35",
+      "price": 500,
+      "image_url": "/Otras/f35.webp"
+    },
+    {
+      "id": "otras_35",
+      "name": "Flor 36",
+      "price": 500,
+      "image_url": "/Otras/f36.webp"
+    },
+    {
+      "id": "otras_36",
+      "name": "Flor 37",
+      "price": 500,
+      "image_url": "/Otras/f37.webp"
+    },
+    {
+      "id": "otras_37",
+      "name": "Flor 38",
+      "price": 500,
+      "image_url": "/Otras/f38.webp"
+    },
+    {
+      "id": "otras_38",
+      "name": "Flor 39",
+      "price": 500,
+      "image_url": "/Otras/f39.webp"
+    },
+    {
+      "id": "otras_39",
+      "name": "Flor 40",
+      "price": 500,
+      "image_url": "/Otras/f40.webp"
+    },
+    {
+      "id": "otras_40",
+      "name": "Flor 41",
+      "price": 500,
+      "image_url": "/Otras/f41.webp"
+    },
+    {
+      "id": "otras_41",
+      "name": "Flor 42",
+      "price": 500,
+      "image_url": "/Otras/f42.webp"
+    },
+    {
+      "id": "otras_42",
+      "name": "Flor 43",
+      "price": 500,
+      "image_url": "/Otras/f43.webp"
+    },
+    {
+      "id": "otras_43",
+      "name": "Flor 44",
+      "price": 500,
+      "image_url": "/Otras/f44.webp"
+    },
+    {
+      "id": "otras_44",
+      "name": "Flor 45",
+      "price": 500,
+      "image_url": "/Otras/f45.webp"
+    },
+    {
+      "id": "otras_45",
+      "name": "Flor 46",
+      "price": 500,
+      "image_url": "/Otras/f46.webp"
+    },
+    {
+      "id": "otras_46",
+      "name": "Flor 47",
+      "price": 500,
+      "image_url": "/Otras/f47.webp"
+    },
+    {
+      "id": "otras_47",
+      "name": "Flor 48",
+      "price": 500,
+      "image_url": "/Otras/f48.webp"
+    },
+    {
+      "id": "otras_48",
+      "name": "Flor 49",
+      "price": 500,
+      "image_url": "/Otras/f49.webp"
+    },
+    {
+      "id": "otras_49",
+      "name": "Flor 50",
+      "price": 500,
+      "image_url": "/Otras/f50.webp"
+    },
+    {
+      "id": "otras_50",
+      "name": "Flor 51",
+      "price": 500,
+      "image_url": "/Otras/f51.webp"
+    },
+    {
+      "id": "otras_51",
+      "name": "Flor 52",
+      "price": 500,
+      "image_url": "/Otras/f52.webp"
+    },
+    {
+      "id": "otras_52",
+      "name": "Flor 53",
+      "price": 500,
+      "image_url": "/Otras/f53.webp"
+    },
+    {
+      "id": "otras_53",
+      "name": "Flor 54",
+      "price": 500,
+      "image_url": "/Otras/f54.webp"
+    },
+    {
+      "id": "otras_54",
+      "name": "Flor 55",
+      "price": 500,
+      "image_url": "/Otras/f55.webp"
+    },
+    {
+      "id": "otras_55",
+      "name": "Flor 56",
+      "price": 500,
+      "image_url": "/Otras/f56.webp"
+    },
+    {
+      "id": "otras_56",
+      "name": "Flor 57",
+      "price": 500,
+      "image_url": "/Otras/f57.webp"
+    },
+    {
+      "id": "otras_57",
+      "name": "Flor 58",
+      "price": 500,
+      "image_url": "/Otras/f58.webp"
+    },
+    {
+      "id": "otras_58",
+      "name": "Flor 59",
+      "price": 500,
+      "image_url": "/Otras/f59.webp"
+    },
+    {
+      "id": "otras_59",
+      "name": "Flor 60",
+      "price": 500,
+      "image_url": "/Otras/f60.webp"
+    },
+    {
+      "id": "otras_60",
+      "name": "Flor 61",
+      "price": 500,
+      "image_url": "/Otras/f61.webp"
+    },
+    {
+      "id": "otras_61",
+      "name": "Flor 62",
+      "price": 500,
+      "image_url": "/Otras/f62.webp"
+    },
+    {
+      "id": "otras_62",
+      "name": "Flor 63",
+      "price": 500,
+      "image_url": "/Otras/f63.webp"
+    },
+    {
+      "id": "otras_63",
+      "name": "Flor 64",
+      "price": 500,
+      "image_url": "/Otras/f64.webp"
+    },
+    {
+      "id": "otras_64",
+      "name": "Flor 65",
+      "price": 500,
+      "image_url": "/Otras/f65.webp"
+    },
+    {
+      "id": "otras_65",
+      "name": "Flor 66",
+      "price": 500,
+      "image_url": "/Otras/f66.webp"
+    },
+    {
+      "id": "otras_66",
+      "name": "Flor 67",
+      "price": 500,
+      "image_url": "/Otras/f67.webp"
+    },
+    {
+      "id": "otras_67",
+      "name": "Flor 68",
+      "price": 500,
+      "image_url": "/Otras/f68.webp"
+    },
+    {
+      "id": "otras_68",
+      "name": "Flor 69",
+      "price": 500,
+      "image_url": "/Otras/f69.webp"
+    },
+    {
+      "id": "otras_69",
+      "name": "Flor 70",
+      "price": 500,
+      "image_url": "/Otras/f70.webp"
+    },
+    {
+      "id": "otras_70",
+      "name": "Flor 71",
+      "price": 500,
+      "image_url": "/Otras/f71.webp"
+    },
+    {
+      "id": "otras_71",
+      "name": "Flor 72",
+      "price": 500,
+      "image_url": "/Otras/f72.webp"
+    },
+    {
+      "id": "otras_72",
+      "name": "Flor 73",
+      "price": 500,
+      "image_url": "/Otras/f73.webp"
+    },
+    {
+      "id": "otras_73",
+      "name": "Flor 74",
+      "price": 500,
+      "image_url": "/Otras/f74.webp"
+    },
+    {
+      "id": "otras_74",
+      "name": "Flor 75",
+      "price": 500,
+      "image_url": "/Otras/f75.webp"
+    },
+    {
+      "id": "otras_75",
+      "name": "Flor 76",
+      "price": 500,
+      "image_url": "/Otras/f76.webp"
+    },
+    {
+      "id": "otras_76",
+      "name": "Flor 77",
+      "price": 500,
+      "image_url": "/Otras/f77.webp"
+    },
+    {
+      "id": "otras_77",
+      "name": "Flor 78",
+      "price": 500,
+      "image_url": "/Otras/f78.webp"
+    },
+    {
+      "id": "otras_78",
+      "name": "Flor 79",
+      "price": 500,
+      "image_url": "/Otras/f79.webp"
+    },
+    {
+      "id": "otras_79",
+      "name": "Flor 80",
+      "price": 500,
+      "image_url": "/Otras/f80.webp"
+    },
+    {
+      "id": "otras_80",
+      "name": "Flor 81",
+      "price": 500,
+      "image_url": "/Otras/f81.webp"
+    },
+    {
+      "id": "otras_81",
+      "name": "Flor 82",
+      "price": 500,
+      "image_url": "/Otras/f82.webp"
+    },
+    {
+      "id": "otras_82",
+      "name": "Flor 83",
+      "price": 500,
+      "image_url": "/Otras/f83.webp"
+    },
+    {
+      "id": "otras_83",
+      "name": "Flor 84",
+      "price": 500,
+      "image_url": "/Otras/f84.webp"
+    },
+    {
+      "id": "otras_84",
+      "name": "Flor 85",
+      "price": 500,
+      "image_url": "/Otras/f85.webp"
+    },
+    {
+      "id": "otras_85",
+      "name": "Flor 86",
+      "price": 500,
+      "image_url": "/Otras/f86.webp"
+    },
+    {
+      "id": "otras_86",
+      "name": "Flor 87",
+      "price": 500,
+      "image_url": "/Otras/f87.webp"
+    },
+    {
+      "id": "otras_87",
+      "name": "Flor 88",
+      "price": 500,
+      "image_url": "/Otras/f88.webp"
+    },
+    {
+      "id": "otras_88",
+      "name": "Flor 89",
+      "price": 500,
+      "image_url": "/Otras/f89.webp"
+    },
+    {
+      "id": "otras_89",
+      "name": "Flor 90",
+      "price": 500,
+      "image_url": "/Otras/f90.webp"
+    },
+    {
+      "id": "otras_90",
+      "name": "Flor 91",
+      "price": 500,
+      "image_url": "/Otras/f91.webp"
+    },
+    {
+      "id": "otras_91",
+      "name": "Flor 92",
+      "price": 500,
+      "image_url": "/Otras/f92.webp"
+    },
+    {
+      "id": "otras_92",
+      "name": "Flor 93",
+      "price": 500,
+      "image_url": "/Otras/f93.webp"
+    },
+    {
+      "id": "otras_93",
+      "name": "Flor 94",
+      "price": 500,
+      "image_url": "/Otras/f94.webp"
+    },
+    {
+      "id": "otras_94",
+      "name": "Flor 95",
+      "price": 500,
+      "image_url": "/Otras/f95.webp"
+    },
+    {
+      "id": "otras_95",
+      "name": "Flor 96",
+      "price": 500,
+      "image_url": "/Otras/f96.webp"
+    },
+    {
+      "id": "otras_96",
+      "name": "Flor 97",
+      "price": 500,
+      "image_url": "/Otras/f97.webp"
+    },
+    {
+      "id": "otras_97",
+      "name": "Flor 98",
+      "price": 500,
+      "image_url": "/Otras/f98.webp"
+    },
+    {
+      "id": "otras_98",
+      "name": "Flor 99",
+      "price": 500,
+      "image_url": "/Otras/f99.webp"
+    },
+    {
+      "id": "otras_99",
+      "name": "Flor 100",
+      "price": 500,
+      "image_url": "/Otras/f100.webp"
+    },
+    {
+      "id": "otras_100",
+      "name": "Flor 101",
+      "price": 500,
+      "image_url": "/Otras/f101.webp"
+    },
+    {
+      "id": "otras_101",
+      "name": "Flor 102",
+      "price": 500,
+      "image_url": "/Otras/f102.webp"
+    },
+    {
+      "id": "otras_102",
+      "name": "Flor 103",
+      "price": 500,
+      "image_url": "/Otras/f103.webp"
+    },
+    {
+      "id": "otras_103",
+      "name": "Flor 104",
+      "price": 500,
+      "image_url": "/Otras/f104.webp"
+    },
+    {
+      "id": "otras_104",
+      "name": "Flor 105",
+      "price": 500,
+      "image_url": "/Otras/f105.webp"
+    },
+    {
+      "id": "otras_105",
+      "name": "Flor 106",
+      "price": 500,
+      "image_url": "/Otras/f106.webp"
+    },
+    {
+      "id": "otras_106",
+      "name": "Flor 107",
+      "price": 500,
+      "image_url": "/Otras/f107.webp"
+    },
+    {
+      "id": "otras_107",
+      "name": "Flor 108",
+      "price": 500,
+      "image_url": "/Otras/f108.webp"
+    },
+    {
+      "id": "otras_108",
+      "name": "Flor 109",
+      "price": 500,
+      "image_url": "/Otras/f109.webp"
+    },
+    {
+      "id": "otras_109",
+      "name": "Flor 110",
+      "price": 500,
+      "image_url": "/Otras/f110.webp"
+    },
+    {
+      "id": "otras_110",
+      "name": "Flor 111",
+      "price": 500,
+      "image_url": "/Otras/f111.webp"
+    },
+    {
+      "id": "otras_111",
+      "name": "Flor 112",
+      "price": 500,
+      "image_url": "/Otras/f112.webp"
+    },
+    {
+      "id": "otras_112",
+      "name": "Flor 113",
+      "price": 500,
+      "image_url": "/Otras/f113.webp"
+    },
+    {
+      "id": "otras_113",
+      "name": "Flor 114",
+      "price": 500,
+      "image_url": "/Otras/f114.webp"
+    },
+    {
+      "id": "otras_114",
+      "name": "Flor 115",
+      "price": 500,
+      "image_url": "/Otras/f115.webp"
+    },
+    {
+      "id": "otras_115",
+      "name": "Flor 116",
+      "price": 500,
+      "image_url": "/Otras/f116.webp"
+    },
+    {
+      "id": "otras_116",
+      "name": "Flor 117",
+      "price": 500,
+      "image_url": "/Otras/f117.webp"
+    },
+    {
+      "id": "otras_117",
+      "name": "Flor 118",
+      "price": 500,
+      "image_url": "/Otras/f118.webp"
+    },
+    {
+      "id": "otras_118",
+      "name": "Flor 119",
+      "price": 500,
+      "image_url": "/Otras/f119.webp"
+    },
+    {
+      "id": "otras_119",
+      "name": "Flor 120",
+      "price": 500,
+      "image_url": "/Otras/f120.webp"
+    },
+    {
+      "id": "otras_120",
+      "name": "Flor 121",
+      "price": 500,
+      "image_url": "/Otras/f121.webp"
+    },
+    {
+      "id": "otras_121",
+      "name": "Flor 122",
+      "price": 500,
+      "image_url": "/Otras/f122.webp"
+    },
+    {
+      "id": "otras_122",
+      "name": "Flor 123",
+      "price": 500,
+      "image_url": "/Otras/f123.webp"
+    },
+    {
+      "id": "otras_123",
+      "name": "Flor 124",
+      "price": 500,
+      "image_url": "/Otras/f124.webp"
+    },
+    {
+      "id": "otras_124",
+      "name": "Flor 125",
+      "price": 500,
+      "image_url": "/Otras/f125.webp"
+    },
+    {
+      "id": "otras_125",
+      "name": "Flor 126",
+      "price": 500,
+      "image_url": "/Otras/f126.webp"
+    },
+    {
+      "id": "otras_126",
+      "name": "Flor 127",
+      "price": 500,
+      "image_url": "/Otras/f127.webp"
     }
   ],
   "accessories": [

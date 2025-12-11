@@ -50,9 +50,6 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
             alt={flower.name}
             loading="lazy"
             decoding="async"
-            fetchPriority="low"
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            srcSet={isVisible ? `${flower.image_url} 448w, ${flower.image_url.replace('.webp', '_small.webp')} 224w` : undefined}
             onLoad={() => setImageLoaded(true)}
             onError={() => setImageLoaded(true)}
             className={`w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}

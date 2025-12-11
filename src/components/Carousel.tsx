@@ -121,7 +121,6 @@ export function Carousel() {
               src={image.url}
               alt={image.title}
               loading="eager"
-              fetchPriority={index === 0 ? "high" : "low"}
               decoding="async"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 1400px"
               onLoad={() => {

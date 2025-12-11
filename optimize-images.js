@@ -11,22 +11,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function optimizeImages() {
-  const inputDir = 'public';
-  const outputDir = 'public/optimized';
+  const inputDir = 'public/otras flores';
+  const outputDir = 'public/otras flores';
 
   // Crear directorio de salida si no existe
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
-  // Crear subdirectorios para diferentes tamaños
-  const sizes = ['small', 'medium', 'large'];
-  sizes.forEach(size => {
-    const sizeDir = path.join(outputDir, size);
-    if (!fs.existsSync(sizeDir)) {
-      fs.mkdirSync(sizeDir, { recursive: true });
-    }
-  });
+  // No crear subdirectorios para diferentes tamaños
 
   // Función para procesar imágenes con Sharp (mejor que imagemin para resizing)
   async function processImageWithSharp(inputPath, outputPath, maxWidth = null) {

@@ -13,7 +13,6 @@ if ('serviceWorker' in navigator) {
   });
 }
 import { Header } from './components/Header';
-import { CategoryFilter } from './components/CategoryFilter';
 import { FlowerCard } from './components/FlowerCard';
 import { useFlowers } from './hooks/useFlowers';
 import { useCart } from './hooks/useCart';
@@ -130,7 +129,6 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isAccessoryModalOpen, setIsAccessoryModalOpen] = useState(false);
   const [selectedFlowerForAccessory, setSelectedFlowerForAccessory] = useState<Flower | null>(null);
@@ -138,10 +136,8 @@ function App() {
 
   // Memoize expensive filtering operation
   const filteredFlowers = useMemo(() => {
-    return selectedCategory
-      ? flowers.filter(flower => flower.category_id === selectedCategory)
-      : flowers;
-  }, [flowers, selectedCategory]);
+    return flowers;
+  }, [flowers]);
 
   const handleSendWhatsApp = useCallback((checkoutData: CheckoutData) => {
     if (cart.length > 0) {
@@ -264,11 +260,6 @@ function App() {
             </div>
           </div>
 
-          <CategoryFilter
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onSelectCategory={setSelectedCategory}
-          />
 
           {filteredFlowers.length === 0 ? (
             <div className="text-center py-20">
