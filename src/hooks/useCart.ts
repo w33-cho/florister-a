@@ -5,74 +5,52 @@ export function useCart() {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   useEffect(() => {
-    // Always start with empty cart - clear any existing data immediately
-    localStorage.removeItem('flower-cart');
-    setCart([]);
-
-    // Also clear on page visibility change (when user switches tabs and comes back)
-    const handleVisibilityChange = () => {
-      if (!document.hidden) {
+    // Load cart from localStorage on mount
+    const savedCart = localStorage.getItem('flower-cart');
+    if (savedCart) {
+      try {
+        setCart(JSON.parse(savedCart));
+      } catch (error) {
+        console.error('Error loading cart from localStorage:', error);
         localStorage.removeItem('flower-cart');
-        setCart([]);
       }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
+    }
   }, []);
 
   useEffect(() => {
-    // Debounce localStorage writes to prevent excessive blocking
-    const timeoutId = setTimeout(() => {
-      const startTime = performance.now();
-      localStorage.setItem('flower-cart', JSON.stringify(cart));
-      const duration = performance.now() - startTime;
-      if (duration > 5) {
-        console.log('[Storage Performance] localStorage write took', duration, 'ms');
-      }
-    }, 100); // 100ms debounce
-
-    return () => clearTimeout(timeoutId);
+    const startTime = performance.now();
+    localStorage.setItem('flower-cart', JSON.stringify(cart));
+    const duration = performance.now() - startTime;
+    if (duration > 5) {
+      console.log('[Storage Performance] localStorage write took', duration, 'ms');
+    }
   }, [cart]);
 
   const addToCart = useCallback((flower: Flower, accessories?: CartAccessory[]) => {
-    // Use requestIdleCallback for non-blocking cart updates
-    const updateCart = () => {
-      const startTime = performance.now();
+    const startTime = performance.now();
 
-      setCart(prevCart => {
-        const existingItem = prevCart.find(item =>
+    setCart(prevCart => {
+      const existingItem = prevCart.find(item =>
+        item.id === flower.id &&
+        JSON.stringify(item.selectedAccessories || []) === JSON.stringify(accessories || [])
+      );
+
+      if (existingItem) {
+        return prevCart.map(item =>
           item.id === flower.id &&
           JSON.stringify(item.selectedAccessories || []) === JSON.stringify(accessories || [])
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
         );
-
-        if (existingItem) {
-          return prevCart.map(item =>
-            item.id === flower.id &&
-            JSON.stringify(item.selectedAccessories || []) === JSON.stringify(accessories || [])
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          );
-        }
-
-        const cartId = `${flower.id}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-        return [...prevCart, { ...flower, cartId, quantity: 1, selectedAccessories: accessories }];
-      });
-
-      const duration = performance.now() - startTime;
-      if (duration > 10) {
-        console.log('[Cart Performance] addToCart took', duration, 'ms');
       }
-    };
 
-    // Schedule for idle time if available, otherwise execute immediately
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(updateCart, { timeout: 100 });
-    } else {
-      updateCart();
+      const cartId = `${flower.id}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      return [...prevCart, { ...flower, cartId, quantity: 1, selectedAccessories: accessories }];
+    });
+
+    const duration = performance.now() - startTime;
+    if (duration > 10) {
+      console.log('[Cart Performance] addToCart took', duration, 'ms');
     }
   }, []);
 

@@ -34,7 +34,7 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
 
 
   return (
-    <div className="group relative" style={{ contain: 'layout style paint', minHeight: '512px' }}>
+    <div className="group relative" style={{ minHeight: '512px' }}>
       <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl overflow-hidden border border-pink-300/50 shadow-2xl shadow-pink-200/50 transform group-hover:scale-105 group-hover:border-pink-400/60 transition-all duration-500 h-[32rem] flex flex-col" style={{ contain: 'layout style' }}>
@@ -74,14 +74,11 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
 
   {quantity === 0 ? (
     <button
-      onClick={(e) => {
-        e.preventDefault();
-        onAddToCart(flower);
-      }}
+      onClick={() => onAddToCart(flower)}
       className="group/btn relative flex-shrink-0"
       aria-label={`Agregar ${flower.name} al carrito`}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl blur-md opacity-60 group-hover/btn:opacity-100 transition-opacity" />
+      <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl blur-md opacity-60 group-hover/btn:opacity-100 transition-opacity" style={{ pointerEvents: 'none' }} />
       <div className="relative flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-600 text-white px-4 py-3 rounded-xl font-bold shadow-xl transform group-hover/btn:scale-105 transition-all duration-300 border border-pink-400/30 whitespace-nowrap">
         <ShoppingCart size={20} aria-hidden="true" />
         Agregar
@@ -90,8 +87,7 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
   ) : (
     <div className="flex items-center gap-2">
       <button
-        onClick={(e) => {
-          e.preventDefault();
+        onClick={() => {
           // Si hay múltiples items con diferentes accesorios, quitar del último agregado
           const cartItems: CartItem[] = JSON.parse(localStorage.getItem('flower-cart') || '[]');
           const itemsWithSameFlower = cartItems.filter((item: CartItem) => item.id === flower.id);
@@ -105,7 +101,7 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
         className="group/btn relative"
         aria-label={`Disminuir cantidad de ${flower.name}`}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 rounded-lg blur-md opacity-60 group-hover/btn:opacity-100 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 rounded-lg blur-md opacity-60 group-hover/btn:opacity-100 transition-opacity" style={{ pointerEvents: 'none' }} />
         <div className="relative flex items-center justify-center bg-gradient-to-r from-red-500 to-red-600 text-white w-10 h-10 rounded-lg font-bold shadow-xl transform group-hover/btn:scale-105 transition-all duration-300 border border-red-400/30">
           <Minus size={16} aria-hidden="true" />
         </div>
@@ -114,14 +110,11 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
       <span className="text-gray-800 text-xl font-black min-w-[2rem] text-center drop-shadow-lg">{quantity}</span>
 
       <button
-        onClick={(e) => {
-          e.preventDefault();
-          onAddToCart(flower);
-        }}
+        onClick={() => onAddToCart(flower)}
         className="group/btn relative"
         aria-label={`Aumentar cantidad de ${flower.name}`}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 rounded-lg blur-md opacity-60 group-hover/btn:opacity-100 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 rounded-lg blur-md opacity-60 group-hover/btn:opacity-100 transition-opacity" style={{ pointerEvents: 'none' }} />
         <div className="relative flex items-center justify-center bg-gradient-to-r from-green-500 to-green-600 text-white w-10 h-10 rounded-lg font-bold shadow-xl transform group-hover/btn:scale-105 transition-all duration-300 border border-green-400/30">
           <Plus size={16} aria-hidden="true" />
         </div>

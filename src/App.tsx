@@ -50,10 +50,11 @@ const srOnly = `
   }
 `;
 
+import { AccessoryModal } from './components/AccessoryModal';
+
 // Lazy load non-critical components with dynamic imports
 const Carousel = lazy(() => import('./components/Carousel').then(module => ({ default: module.Carousel })));
 const CartComponent = lazy(() => import('./components/Cart').then(module => ({ default: module.Cart })));
-const AccessoryModalComponent = lazy(() => import('./components/AccessoryModal').then(module => ({ default: module.AccessoryModal })));
 
 
 const WHATSAPP_NUMBER = '5358702873';
@@ -147,28 +148,6 @@ function App() {
     }
   }, [cart, clearCart]);
 
-  // Reset cart on page load and when page becomes visible
-  useEffect(() => {
-    const resetCart = () => {
-      localStorage.removeItem('flower-cart');
-    };
-
-    // Reset immediately
-    resetCart();
-
-    // Also reset when page becomes visible (user switches tabs)
-    const handleVisibilityChange = () => {
-      if (!document.hidden) {
-        resetCart();
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
 
   const handleAddToCart = useCallback((flower: Flower) => {
     // Siempre mostrar modal de accesorios para ramos y macetas, incluso si ya hay uno en el carrito
@@ -307,16 +286,14 @@ function App() {
         />
       </Suspense>
 
-      <Suspense fallback={<div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center" style={{ contain: 'layout style paint' }}><Loader2 className="animate-spin text-white" size={32} /></div>}>
-        <AccessoryModalComponent
-          isOpen={isAccessoryModalOpen}
-          onClose={() => setIsAccessoryModalOpen(false)}
-          accessories={accessories}
-          onSelectAccessories={setSelectedAccessories}
-          selectedAccessories={selectedAccessories}
-          onConfirm={handleAccessoryConfirm}
-        />
-      </Suspense>
+      <AccessoryModal
+        isOpen={isAccessoryModalOpen}
+        onClose={() => setIsAccessoryModalOpen(false)}
+        accessories={accessories}
+        onSelectAccessories={setSelectedAccessories}
+        selectedAccessories={selectedAccessories}
+        onConfirm={handleAccessoryConfirm}
+      />
 
       <footer className="relative bg-gradient-to-t from-pink-100 via-rose-50 to-pink-50 text-pink-800 py-12 mt-20 border-t border-pink-300/50" role="contentinfo">
         <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-rose-500/5 pointer-events-none" />
