@@ -34,10 +34,10 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
 
 
   return (
-    <div className="group relative" style={{ minHeight: '512px' }}>
+    <div className="group relative" style={{ height: '28rem' }}>
       <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl overflow-hidden border border-pink-300/50 shadow-2xl shadow-pink-200/50 transform group-hover:scale-105 group-hover:border-pink-400/60 transition-all duration-500 h-[32rem] flex flex-col" style={{ contain: 'layout style' }}>
+      <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl overflow-hidden border border-pink-300/50 shadow-2xl shadow-pink-200/50 transform group-hover:scale-105 group-hover:border-pink-400/60 transition-all duration-500 h-[28rem] flex flex-col" style={{ contain: 'layout style' }}>
         <div className="relative h-64 overflow-hidden flex-shrink-0 bg-white" style={{ backgroundColor: 'white' }}>
           {!imageLoaded && (
             <div className="absolute inset-0 flex items-center justify-center bg-pink-50">
@@ -56,12 +56,12 @@ export function FlowerCard({ flower, quantity, onUpdateQuantity, onAddToCart }: 
           />
         </div>
 
-        <div className="p-6 bg-gradient-to-br from-pink-100/90 to-rose-100/90 backdrop-blur-sm flex-1 flex flex-col">
-           <h3 className="text-xl font-bold text-gray-800 mb-2 h-[3.5rem] overflow-hidden flex items-center">
+        <div className="px-6 pt-6 pb-2 bg-gradient-to-br from-pink-100/90 to-rose-100/90 backdrop-blur-sm flex-1 flex flex-col">
+           <h3 className="text-xl font-bold text-gray-800 mb-2">
              {flower.name}
            </h3>
-           <p className="text-gray-700 text-sm mb-4 h-[4rem] overflow-hidden flex items-start">{flower.description}</p>
-<div className="flex items-center justify-between gap-2 mb-4 mt-auto">
+           <p className="text-gray-700 text-sm mb-3">{flower.description}</p>
+<div className="flex items-center justify-between gap-2 mt-auto">
   <div className="flex flex-col justify-center">
     <div className="text-xs text-gray-700 mb-1 font-semibold tracking-wide">PRECIO</div>
     <div className="flex items-baseline gap-1">

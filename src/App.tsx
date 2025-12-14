@@ -250,7 +250,7 @@ function App() {
               <p className="text-gray-800 mt-2">Selecciona otra categoría para ver más productos</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" style={{ gridAutoRows: '28rem' }}>
               {filteredFlowers.map((flower, index) => (
                 <div
                   key={flower.id}
